@@ -1,5 +1,5 @@
 import tap from 'tape';
-import Mirror from '../../lib/components/Mirror.js';
+import Mirror from '../../lib/parts/Mirror.js';
 import LightSignal from '../../lib/signals/LightSignal.js';
 import MockComponent from '../fixtures/MockComponent.js';
 

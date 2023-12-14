@@ -1,5 +1,5 @@
 import tap from 'tape';
-import PowerSupply from '../../lib/components/PowerSupply.js';
+import PowerSupply from '../../lib/parts/PowerSupply.js';
 import ElectricalSignal from '../../lib/signals/ElectricalSignal.js'; // Assuming it's in the same directory
 import MockComponent from '../fixtures/MockComponent.js';
 

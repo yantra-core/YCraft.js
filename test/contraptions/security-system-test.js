@@ -1,12 +1,12 @@
 import tap from 'tape';
 import RealStone from '../../lib/RealStone.js';
-import MotionDetector from '../../lib/components/MotionDetector.js';
-import Amplifier from '../../lib/components/Amplifier.js';
-import Wire from '../../lib/components/Wire.js';
-import PressureSensor from '../../lib/components/PressureSensor.js';
-import LEDLight from '../../lib/components/LEDLight.js';
-import Button from '../../lib/components/Button.js';
-import Repeater from '../../lib/components/Repeater.js';
+import MotionDetector from '../../lib/parts/MotionDetector.js';
+import Amplifier from '../../lib/parts/Amplifier.js';
+import Wire from '../../lib/parts/Wire.js';
+import PressureSensor from '../../lib/parts/PressureSensor.js';
+import LEDLight from '../../lib/parts/LEDLight.js';
+import Button from '../../lib/parts/Button.js';
+import Repeater from '../../lib/parts/Repeater.js';
 
 tap.test('Smart Security System Integration Test', (t) => {
     const realStoneSystem = new RealStone();
@@ -29,13 +29,13 @@ tap.test('Smart Security System Integration Test', (t) => {
     manualOverrideButton.connect(securityLight);
 
     // Add components to RealStone system
-    realStoneSystem.addComponent(motionDetector);
-    realStoneSystem.addComponent(signalAmplifier);
-    realStoneSystem.addComponent(wire);
-    realStoneSystem.addComponent(pressureSensor);
-    realStoneSystem.addComponent(securityLight);
-    realStoneSystem.addComponent(manualOverrideButton);
-    realStoneSystem.addComponent(signalRepeater);
+    realStoneSystem.addPart(motionDetector);
+    realStoneSystem.addPart(signalAmplifier);
+    realStoneSystem.addPart(wire);
+    realStoneSystem.addPart(pressureSensor);
+    realStoneSystem.addPart(securityLight);
+    realStoneSystem.addPart(manualOverrideButton);
+    realStoneSystem.addPart(signalRepeater);
 
     // Simulate events
     t.test('Motion Detected Scenario', (subTest) => {

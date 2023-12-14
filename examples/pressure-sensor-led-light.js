@@ -10,9 +10,9 @@ pressureSensor.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addComponent(pressureSensor);
-realStoneSystem.addComponent(wire);
-realStoneSystem.addComponent(ledLight);
+realStoneSystem.addPart(pressureSensor);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(ledLight);
 
 // Simulate triggering the pressure sensor
 pressureSensor.trigger();

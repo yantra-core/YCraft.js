@@ -1,5 +1,5 @@
 import tap from 'tape';
-import Button from '../../lib/components/Button.js';
+import Button from '../../lib/parts/Button.js';
 import MockComponent from '../fixtures/MockComponent.js';
 
 tap.test('Button', (t) => {

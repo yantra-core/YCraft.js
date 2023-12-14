@@ -1,5 +1,5 @@
 import tap from 'tape';
-import Actuator from '../../lib/components/Actuator.js';
+import Actuator from '../../lib/parts/Actuator.js';
 import MockComponent from '../fixtures/MockComponent.js';
 
 tap.test('Actuator', (t) => {

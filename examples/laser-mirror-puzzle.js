@@ -19,12 +19,12 @@ mirror1.connect(mirror2); // Assume mirrors can be positioned to reflect the bea
 mirror2.connect(targetLED); // Target hit by the laser
 
 // Add components to the RealStone system
-realStoneSystem.addComponent('startButton', startButton)
-realStoneSystem.addComponent('resetButton', resetButton)
-realStoneSystem.addComponent('laserSensor', laserSensor)
-realStoneSystem.addComponent('mirror1', mirror1)
-realStoneSystem.addComponent('mirror2', mirror2)
-realStoneSystem.addComponent('targetLED', targetLED);
+realStoneSystem.addPart('startButton', startButton)
+realStoneSystem.addPart('resetButton', resetButton)
+realStoneSystem.addPart('laserSensor', laserSensor)
+realStoneSystem.addPart('mirror1', mirror1)
+realStoneSystem.addPart('mirror2', mirror2)
+realStoneSystem.addPart('targetLED', targetLED);
 
 // Simulate starting the puzzle
 startButton.press();

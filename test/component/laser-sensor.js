@@ -1,5 +1,5 @@
 import tap from 'tape';
-import LaserSensor from '../../lib/components/LaserSensor.js';
+import LaserSensor from '../../lib/parts/LaserSensor.js';
 import ElectricalSignal from '../../lib/signals/ElectricalSignal.js';
 
 tap.test('LaserSensor', (t) => {

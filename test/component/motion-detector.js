@@ -1,5 +1,5 @@
 import tap from 'tape';
-import MotionDetector from '../../lib/components/MotionDetector.js';
+import MotionDetector from '../../lib/parts/MotionDetector.js';
 import MockComponent from '../fixtures/MockComponent.js';
 
 tap.test('MotionDetector', (t) => {

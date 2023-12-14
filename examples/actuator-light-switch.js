@@ -11,9 +11,9 @@ button.connect(actuator);
 actuator.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addComponent(button);
-realStoneSystem.addComponent(actuator);
-realStoneSystem.addComponent(ledLight);
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(actuator);
+realStoneSystem.addPart(ledLight);
 
 
 // Simulate a game loop
@@ -28,8 +28,12 @@ button.press();
 // In a real game, this would be part of your game's update loop
 setTimeout(() => {
     // Simulate releasing the button
-    button.press();
+    //button.press();
 
     // Further logic to toggle the LED light off can be added here
 }, 1000); // Delay of 1 second
 
+
+
+console.log(realStoneSystem)
+console.log(realStoneSystem.toJSON())

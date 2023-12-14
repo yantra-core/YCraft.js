@@ -1,5 +1,5 @@
 import tap from 'tape';
-import Wire from '../../lib/components/Wire.js';
+import Wire from '../../lib/parts/Wire.js';
 import ElectricalSignal from '../../lib/signals/ElectricalSignal.js';
 
 tap.test('Wire', (t) => {

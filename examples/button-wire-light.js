@@ -12,9 +12,9 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addComponent(button);
-realStoneSystem.addComponent(wire);
-realStoneSystem.addComponent(ledLight);
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();

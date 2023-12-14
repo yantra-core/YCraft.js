@@ -21,13 +21,13 @@ pressureSensor.connect(securityLight);
 manualOverrideButton.connect(securityLight);
 
 // Add components to RealStone system
-realStoneSystem.addComponent(motionDetector);
-realStoneSystem.addComponent(signalAmplifier);
-realStoneSystem.addComponent(wire);
-realStoneSystem.addComponent(pressureSensor);
-realStoneSystem.addComponent(securityLight);
-realStoneSystem.addComponent(manualOverrideButton);
-realStoneSystem.addComponent(signalRepeater);
+realStoneSystem.addPart(motionDetector);
+realStoneSystem.addPart(signalAmplifier);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(pressureSensor);
+realStoneSystem.addPart(securityLight);
+realStoneSystem.addPart(manualOverrideButton);
+realStoneSystem.addPart(signalRepeater);
 
 motionDetector.detectMotion(); // Simulate motion detection
 manualOverrideButton.press(); // Simulate manual override
