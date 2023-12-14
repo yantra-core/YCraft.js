@@ -1,8 +1,9 @@
-import { RealStone, Button, LEDLight, Wire } from '../index.js';
+import { RealStone, Button, LEDLight, Wire, ElectricalSignal } from '../index.js';
 
 let realStoneSystem = new RealStone({
   powerRequired: false // default is false, set to true to enforce power requirements
 });
+
 let button = new Button();
 let wire = new Wire();
 let ledLight = new LEDLight();
@@ -16,5 +17,10 @@ realStoneSystem.addComponent(button);
 realStoneSystem.addComponent(wire);
 realStoneSystem.addComponent(ledLight);
 
-// Simulate pressing the button
-button.press();
+let signal = new ElectricalSignal({
+  voltage: 500,
+  current: 300
+});
+
+// Simulate pressing the button, with custom signal
+button.press(signal);
