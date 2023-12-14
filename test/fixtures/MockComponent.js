@@ -3,14 +3,14 @@ import ElectricalSignal from "../../lib/signals/ElectricalSignal.js";
 export default class MockComponent {
   constructor() {
       this.receivedSignals = [];
-      this.connectedComponents = [];
+      this.connectedParts = [];
       this.signal = new ElectricalSignal();
   }
 
   transmit(signal = this.signal) {
-    console.log('signal', signal, 'this.connectedComponents', this.connectedComponents, 'this.connectedComponents.length', this.connectedComponents.length)
+    console.log('signal', signal, 'this.connectedParts', this.connectedParts, 'this.connectedParts.length', this.connectedParts.length)
     this.receive(signal);
-      this.connectedComponents.forEach(component => {
+      this.connectedParts.forEach(component => {
           if (typeof component.receive === 'function') {
               component.receive(signal);
           }
@@ -22,8 +22,8 @@ export default class MockComponent {
   }
 
   connect(component) {
-    console.log("connectedComponentsconnectedComponents")
-      this.connectedComponents.push(component);
+    console.log("connectedPartsconnectedParts")
+      this.connectedParts.push(component);
   }
 
   update () {

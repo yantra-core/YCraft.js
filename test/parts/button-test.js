@@ -8,12 +8,14 @@ tap.test('Button', (t) => {
     button.connect(mockComponent);
 
     t.test('connect method', (subTest) => {
-        subTest.same(button.connectedComponent, mockComponent, 'connect should assign a component to connectedComponent');
+        button.connect(mockComponent);
+        subTest.equal(button.connectedParts[0], mockComponent, 'connect should assign a component');
         subTest.end();
     });
 
     t.test('press method', (subTest) => {
         button.press();
+        console.log('mockComponent', mockComponent)
         const signalReceived = mockComponent.receivedSignals.length > 0;
         subTest.ok(signalReceived, 'press should call receive on the connected component with "signal"');
         subTest.end();

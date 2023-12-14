@@ -31,3 +31,8 @@ realStoneSystem.addPart(signalRepeater);
 
 motionDetector.detectMotion(); // Simulate motion detection
 manualOverrideButton.press(); // Simulate manual override
+
+
+console.log(JSON.stringify(realStoneSystem.toJSON(), true, 2))
+//console.log(realStoneSystem)
+//console.log(realStoneSystem.toJSON().parts)

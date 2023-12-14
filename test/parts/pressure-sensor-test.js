@@ -10,7 +10,7 @@ tap.test('PressureSensor', (t) => {
   t.test('connect method', (subTest) => {
     const mockComponent = new MockComponent();
     pressureSensor.connect(mockComponent);
-    subTest.same(pressureSensor.connectedComponent, mockComponent, 'connect should assign a component to connectedComponent');
+    subTest.equal(pressureSensor.connectedParts[0], mockComponent, 'connect should assign a component');
     subTest.end();
   });
 
