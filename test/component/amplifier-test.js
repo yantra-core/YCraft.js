@@ -1,7 +1,7 @@
 import tap from 'tape';
 import Amplifier from '../../lib/components/Amplifier.js';
 import MockComponent from '../fixtures/MockComponent.js';
-import ElectricalSignal from '../../lib/ElectricalSignal.js';
+import ElectricalSignal from '../../lib/signals/ElectricalSignal.js';
 tap.test('Amplifier', (t) => {
     const amplifier = new Amplifier({ amplitude: 3 });
     const mockComponent = new MockComponent();

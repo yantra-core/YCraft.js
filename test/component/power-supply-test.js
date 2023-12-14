@@ -1,6 +1,6 @@
 import tap from 'tape';
 import PowerSupply from '../../lib/components/PowerSupply.js';
-import ElectricalSignal from '../../lib/ElectricalSignal.js'; // Assuming it's in the same directory
+import ElectricalSignal from '../../lib/signals/ElectricalSignal.js'; // Assuming it's in the same directory
 import MockComponent from '../fixtures/MockComponent.js';
 
 tap.test('PowerSupply', (t) => {

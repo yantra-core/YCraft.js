@@ -1,4 +1,4 @@
-import ElectricalSignal from "../../lib/ElectricalSignal.js";
+import ElectricalSignal from "../../lib/signals/ElectricalSignal.js";
 
 export default class MockComponent {
   constructor() {

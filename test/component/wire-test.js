@@ -1,6 +1,6 @@
 import tap from 'tape';
 import Wire from '../../lib/components/Wire.js';
-import ElectricalSignal from '../../lib/ElectricalSignal.js';
+import ElectricalSignal from '../../lib/signals/ElectricalSignal.js';
 
 tap.test('Wire', (t) => {
   // Test with signal loss
