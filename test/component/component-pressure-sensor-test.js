@@ -1,7 +1,7 @@
 import tap from 'tape';
-import EventEmitter from '../lib/utils/EventEmitter.js';
-import PressureSensor from '../lib/components/PressureSensor.js';
-import MockComponent from './fixtures/MockComponent.js';
+import EventEmitter from '../../lib/utils/EventEmitter.js';
+import PressureSensor from '../../lib/components/PressureSensor.js';
+import MockComponent from '../fixtures/MockComponent.js';
 tap.test('PressureSensor', (t) => {
   const pressureSensor = new PressureSensor();
   //t.type(pressureSensor, PressureSensor, 'PressureSensor should be an instance of PressureSensor');

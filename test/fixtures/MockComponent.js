@@ -1,10 +1,13 @@
+import ElectricalSignal from "../../lib/ElectricalSignal.js";
+
 export default class MockComponent {
   constructor() {
       this.receivedSignals = [];
       this.connectedComponents = [];
+      this.signal = new ElectricalSignal();
   }
 
-  transmit(signal) {
+  transmit(signal = this.signal) {
     console.log('signal', signal, 'this.connectedComponents', this.connectedComponents, 'this.connectedComponents.length', this.connectedComponents.length)
     this.receive(signal);
       this.connectedComponents.forEach(component => {

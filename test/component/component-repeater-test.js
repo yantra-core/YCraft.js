@@ -1,6 +1,6 @@
 import tap from 'tape';
-import Repeater from '../lib/components/Repeater.js';
-import MockComponent from './fixtures/MockComponent.js';
+import Repeater from '../../lib/components/Repeater.js';
+import MockComponent from '../fixtures/MockComponent.js';
 
 tap.test('Repeater', (t) => {
     const repeater = new Repeater();
