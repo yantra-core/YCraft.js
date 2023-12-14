@@ -2,7 +2,7 @@ import { RealStone, Button, LEDLight, Wire, Amplifier } from '../index.js';
 
 let realStoneSystem = new RealStone();
 let button = new Button();
-let amplifier = new Amplifier({ amplitude: 3 }); // Adding the Amplifier
+let amplifier = new Amplifier(0, 0, 0, { amplitude: 3 }); // Adding the Amplifier
 let wire = new Wire();
 let ledLight = new LEDLight();
 

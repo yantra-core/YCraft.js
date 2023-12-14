@@ -3,7 +3,7 @@ import Amplifier from '../../lib/parts/Amplifier.js';
 import MockComponent from '../fixtures/MockComponent.js';
 import ElectricalSignal from '../../lib/signals/ElectricalSignal.js';
 tap.test('Amplifier', (t) => {
-    const amplifier = new Amplifier({ amplitude: 3 });
+    const amplifier = new Amplifier(0, 0, 0, { amplitude: 3 });
     const mockComponent = new MockComponent();
     amplifier.connect(mockComponent);
 
