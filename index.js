@@ -11,6 +11,7 @@ import Mirror from './lib/parts/Mirror.js';
 import MotionDetector from './lib/parts/MotionDetector.js';
 import PressureSensor from './lib/parts/PressureSensor.js';
 import Repeater from './lib/parts/Repeater.js';
+import Rover from './lib/parts/Rover.js';
 import Wire from './lib/parts/Wire.js';
 
 export {
@@ -25,6 +26,7 @@ export {
   MotionDetector,
   PressureSensor,
   Repeater,
+  Rover,
   Wire,
 
   /*
