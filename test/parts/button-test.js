@@ -24,7 +24,7 @@ tap.test('Button', (t) => {
     // Optional: Test for release method
     t.test('release method', (subTest) => {
         let releaseEventEmitted = false;
-        button.on('released', () => {
+        button.on('release', () => {
             releaseEventEmitted = true;
         });
         button.release();
