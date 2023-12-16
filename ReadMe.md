@@ -1,8 +1,8 @@
-# RealStone.js - Simulated Crafting System using Real Parts
+# RealStone.js - A library for building and simulating interactive contraptions within a physics-based environment.
 
 ## Build contrapations with parts.
 
-Think the MineCraft RedStone system, using real-world parts. RealStone.js is a simulation focused library great for building games or educational tools. RealStone handles all aspects of your simultion while emitting events that other outside ystems can interact with. 
+Think of the Minecraft Redstone system using real-world parts. RealStone.js is a simulation-focused library great for building games or educational tools. RealStone handles all aspects of your simulation while emitting events other outside systems can interact with. 
 
 # Design Prinicpals
 
@@ -10,53 +10,11 @@ Think the MineCraft RedStone system, using real-world parts. RealStone.js is a s
  - Opt-in Realism, You decide what level of realism your simulation uses
  - Reasonable defaults and conventions for all physics and world settings
 
-## Part list
-
-## TODO blah add check lists for missing parts? do something
-
-| RealStone Part       | Minecraft Equivalent      |
-|----------------------|---------------------------|
-| Wire                 | Redstone Dust             |
-| Transistor           | Redstone Torch            |
-| Power Supply         | Redstone Block            |
-| Repeater             | Redstone Repeater         |
-| Amplifier            | Redstone Comparator       |
-| Button               | Button                    |
-| Pressure Sensor      | Pressure Plate            |
-| Impact Sensor        | Target Block              |
-| Motion Detector      | Observer                  |
-| LED Light            | Redstone Lamp             |
-
-
-| RealStone Part       | Minecraft Equivalent      |
-|----------------------|---------------------------|
-| Wire                 | Redstone Dust             |
-| Transistor           | Redstone Torch            |
-| Power Supply         | Redstone Block            |
-| Repeater             | Redstone Repeater         |
-| Amplifier            | Redstone Comparator       |
-| Lever                | Lever                     |
-| Button               | Button                    |
-| Pressure Sensor      | Pressure Plate            |
-| Laser Sensor         | Tripwire Hook and String  |
-| Impact Sensor        | Target Block              |
-| Motion Detector      | Observer                  |
-| Actuator             | Piston                    |
-| Electro Actuator     | Sticky Piston             |
-| Dispenser            | Dispenser and Dropper     |
-| Conveyor Belt        | Hopper                    |
-| Tamper Sensor        | Trapped Chest             |
-| LED Light            | Redstone Lamp             |
-| Photodetector        | Daylight Sensor           |
-
-
-We are working towards adding for more parts. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/RealStone.js/pulls).
-
 
 ```js
-import { RealStone, Button, LEDLight, Wire } from '../index.js';
+import { RealStone, Button, LEDLight, Wire } from 'realstone';
 
-let realStoneSystem = new RealStone();
+let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight(100, 50, 0);
@@ -66,14 +24,35 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(wire);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(button);
+lightSwitch.addPart(wire);
+lightSwitch.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
 
 ```
+
+
+## Part list
+
+
+| RealStone Part       | Minecraft Equivalent      |
+|----------------------|---------------------------|
+| Wire                 | Redstone Dust             |
+| Transistor           | Redstone Torch            |
+| Power Supply         | Redstone Block            |
+| Repeater             | Redstone Repeater         |
+| Amplifier            | Redstone Comparator       |
+| Button               | Button                    |
+| Pressure Sensor      | Pressure Plate            |
+| Impact Sensor        | Target Block              |
+| Motion Detector      | Observer                  |
+| LED Light            | Redstone Lamp             |
+
+
+
+More Parts are coming. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/RealStone.js/pulls).
 
 ## Super Easy Rendering
 
@@ -92,9 +71,9 @@ Consider a `Light Switch` contraption. In the following four examples, we demons
 In this basic example, we create a light switch without any wires or power source, and all parts are at the default position `(0, 0, 0)`.
 
 ```javascript
-import { RealStone, Button, LEDLight } from '../index.js';
+import { RealStone, Button, LEDLight } from 'realstone';
 
-let realStoneSystem = new RealStone();
+let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
 let ledLight = new LEDLight(0, 0, 0);
 
@@ -102,13 +81,12 @@ let ledLight = new LEDLight(0, 0, 0);
 button.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(button);
+lightSwitch.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
 ```
-
 
 In this most basic example the entire contraption sits at the (0,0,0) position with no power source. Parts are connected directly to each other without the use of Wires. Triggering the button press event will toggle the light since the two parts are directly connected.
 
@@ -122,9 +100,9 @@ In this example we create the same contraption, however we apply spatial positio
 
 
 ```js
-import { RealStone, Button, LEDLight } from '../index.js';
+import { RealStone, Button, LEDLight } from 'realstone';
 
-let realStoneSystem = new RealStone();
+let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
 let ledLight = new LEDLight(100, 50, 0);
 
@@ -132,8 +110,8 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(button);
+lightSwitch.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
@@ -141,8 +119,8 @@ button.press();
 ```
 
  [] - Has spatial position
- - no wires used
- - no power source required
+ [] - no wires used
+ [] - no power source required
 
 
 ### With Wire
@@ -151,9 +129,9 @@ Instead of directly connecting the parts together, we can uses `Wires` to connec
 
 
 ```js
-import { RealStone, Button, LEDLight, Wire } from '../index.js';
+import { RealStone, Button, LEDLight, Wire } from 'realstone';
 
-let realStoneSystem = new RealStone();
+let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight(100, 50, 0);
@@ -163,18 +141,18 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(wire);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(button);
+lightSwitch.addPart(wire);
+lightSwitch.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
 
 ```
 
- [] - Has spatial position
+ []- Has spatial position
  [] - wires used
- - no power source required
+ [] - no power source required
 
 
 ### Light with Power
@@ -183,9 +161,9 @@ All our previous examples assumed infinite free power was available. By changing
 
 
 ```js
-import { RealStone, Button, LEDLight, Wire, PowerSupply } from '../index.js';
+import { RealStone, Button, LEDLight, Wire, PowerSupply } from 'realstone';
 
-let realStoneSystem = new RealStone({ powerRequired: true });
+let lightSwitch = new RealStone({ powerRequired: true });
 let button = new Button(0, 0, 0);
 let wire = new Wire(); // TODO: wire settings
 let ledLight = new LEDLight(100, 50, 0); // TOOD: power watter
@@ -197,10 +175,10 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(powerSupply);
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(wire);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(powerSupply);
+lightSwitch.addPart(button);
+lightSwitch.addPart(wire);
+lightSwitch.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();

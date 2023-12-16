@@ -298,7 +298,7 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
         return connections;
       }
       part.connectedParts.forEach(function (connectedPart) {
-        console.log("connectedPart", connectedPart);
+        // console.log("connectedPart", connectedPart)
         // Serialize only relevant connection information for each part
         connections.push({
           id: connectedPart.id,
@@ -477,7 +477,7 @@ var Amplifier = exports["default"] = /*#__PURE__*/function (_Part) {
     key: "receive",
     value: function receive(signal) {
       signal.current = signal.current * this.amplitude;
-      console.log('sending along', signal);
+      // console.log('sending along', signal)
       // Transmit the amplified signal
       this.transmit(signal);
     }
@@ -575,7 +575,7 @@ var Button = exports["default"] = /*#__PURE__*/function (_Part) {
       this.lastToggle = currentTime;
 
       // Emit press event and send signal
-      console.log('Button.press', signal);
+      // console.log('Button.press', signal);
       this.emit('press', signal);
       this.connectedParts.forEach(function (component) {
         if (component.receive && typeof component.receive === 'function') {
@@ -613,7 +613,7 @@ var Button = exports["default"] = /*#__PURE__*/function (_Part) {
     value: function release() {
       var _this3 = this;
       this.emit('release');
-      console.log('Button released');
+      // console.log('Button released');
 
       // Notify connected components
       this.connectedParts.forEach(function (component) {
@@ -688,7 +688,7 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
   }, {
     key: "off",
     value: function off(signal) {
-      console.log('Turning off LED light...');
+      // console.log('Turning off LED light...');
       this.isOn = false;
       this.emit('off');
     }
@@ -697,7 +697,7 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
     value: function receive(signal) {
       // Check if the light is broken
       if (this.isBroken) {
-        console.log('LED light is broken and cannot be turned on.');
+        // console.log('LED light is broken and cannot be turned on.');
         return;
       }
       this.signal = signal;
@@ -705,23 +705,23 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
 
       // Check for exceeding maxWattage
       if (power > this.maxWattage) {
-        console.log('LED light has broken due to excessive power!');
+        // console.log('LED light has broken due to excessive power!');
         this.isOn = false;
         this.isBroken = true; // Permanently disable the light
         this.emit('broken');
         return;
       }
       if (this.isOn) {
-        console.log('Turning off LED light...');
+        // console.log('Turning off LED light...');
         this.isOn = false;
-        this.emit('off');
+        this.emit('off', signal);
       } else {
         if (!this.realStone.powerRequired || power >= this.wattage) {
-          console.log('Turning on LED light...', signal);
+          // console.log('Turning on LED light...', signal);
           this.isOn = true;
-          this.emit('on');
+          this.emit('on', signal);
         } else {
-          console.log('Insufficient power to turn on LED light...');
+          // console.log('Insufficient power to turn on LED light...')
         }
       }
     }
@@ -730,13 +730,13 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
     value: function handleCollision(entity) {
       // Check if the light is broken
       if (this.isBroken) {
-        console.log('LED light is broken and cannot be turned on.');
+        // console.log('LED light is broken and cannot be turned on.');
         return;
       }
 
       // Check if the entity is a Rover
       if (entity.type === 'Rover') {
-        console.log('LED light has broken due to collision with Rover!');
+        // console.log('LED light has broken due to collision with Rover!');
         this.isOn = false;
         this.isBroken = true; // Permanently disable the light
         this.props.color = 'grey';
@@ -805,7 +805,7 @@ var LaserSensor = exports["default"] = /*#__PURE__*/function (_EventEmitter) {
     key: "emitLaser",
     value: function emitLaser() {
       if (this.connectedComponent) {
-        console.log('LaserSensor: Emitting laser signal.');
+        // console.log('LaserSensor: Emitting laser signal.');
         this.connectedComponent.receive(this.laserSignal);
       }
     }
@@ -949,7 +949,7 @@ var MotionDetector = exports["default"] = /*#__PURE__*/function (_Part) {
         signal.encodeUSB(1); // Encoding a binary '1' to indicate motion detection
         console.log('Motion detected!');
         this.transmit(signal);
-        this.emit('motion');
+        this.emit('motion', signal);
       } else {
         console.log('Motion detector is not connected to any component.');
       }
@@ -1027,7 +1027,7 @@ var PressureSensor = exports["default"] = /*#__PURE__*/function (_Part) {
     value: function trigger() {
       var signal = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.signal;
       // Emit signal to all connected components
-      this.emit('trigger');
+      this.emit('trigger', signal);
       this.connectedParts.forEach(function (component) {
         if (component.receive && typeof component.receive === 'function') {
           component.receive(signal);
@@ -1153,13 +1153,16 @@ var Rover = /*#__PURE__*/function (_Part) {
         y: 5
       } : _ref$velocity,
       _ref$color = _ref.color,
-      color = _ref$color === void 0 ? 0xcccccc : _ref$color;
+      color = _ref$color === void 0 ? 0xcccccc : _ref$color,
+      _ref$movementRate = _ref.movementRate,
+      movementRate = _ref$movementRate === void 0 ? 16.666 : _ref$movementRate;
     _classCallCheck(this, Rover);
     _this = _super.call(this, x, y, z);
     _this.type = Rover.type;
     _this.props = {};
     _this.props.velocity = velocity;
     _this.props.color = color;
+    _this.props.movementRate = movementRate;
     _this.state = 'inactive'; // Initially inactive
     _this.isOn = false; // Toggle state
     _this.movementInterval = null;
@@ -1201,7 +1204,7 @@ var Rover = /*#__PURE__*/function (_Part) {
       }
       this.movementInterval = setInterval(function () {
         return _this2.update();
-      }, this.defaultDelay);
+      }, this.props.movementRate);
     }
 
     // Method to stop moving
@@ -1234,7 +1237,7 @@ var Rover = /*#__PURE__*/function (_Part) {
       if (collidedWith.name === 'Rover') return; // TODO remove
 
       if (this.collisionCooldown) return; // Ignore collision if in cooldown
-      console.log(collidedWith, "ROVER HAS SWITCH POSITIONS");
+      // console.log(collidedWith, "ROVER HAS SWITCH POSITIONS");
 
       // Reverse direction upon collision
       this.props.velocity.x *= -1;
@@ -1253,7 +1256,7 @@ var Rover = /*#__PURE__*/function (_Part) {
       this.collisionCooldown = true;
       setTimeout(function () {
         _this3.collisionCooldown = false;
-      }, 200); // Collision cooldown period
+      }, this.props.movementRate); // Collision cooldown period
     }
   }]);
   return Rover;
@@ -1357,7 +1360,7 @@ var Wire = exports["default"] = /*#__PURE__*/function (_Part) {
       if (this.props.signalLoss) {
         signal = this.applySignalLoss(signal);
       }
-      console.log('Wire received signal: ', signal);
+      // console.log('Wire received signal: ', signal);
       this.transmit(signal);
     }
   }, {
@@ -1377,7 +1380,7 @@ var Wire = exports["default"] = /*#__PURE__*/function (_Part) {
   }, {
     key: "off",
     value: function off() {
-      console.log('Turning off wire...');
+      // console.log('Turning off wire...');
       this.emit('off');
       this.connectedParts.forEach(function (part) {
         if (part.off) {
@@ -1543,7 +1546,11 @@ var EventEmitter = exports["default"] = /*#__PURE__*/function () {
       // Call anyListeners if they exist
       this.anyListeners.forEach(function (listener) {
         try {
-          listener.call.apply(listener, [_this2, eventName].concat(args));
+          var scopedEventName = eventName;
+          if (_this2.type) {
+            scopedEventName = _this2.type + '::' + eventName;
+          }
+          listener.call.apply(listener, [_this2, scopedEventName].concat(args));
         } catch (error) {
           console.error("Error when executing any listener for event \"".concat(eventName, "\":"), error);
         }
