@@ -13,7 +13,12 @@ import Repeater from './lib/parts/Repeater.js';
 import Rover from './lib/parts/Rover.js';
 import Wire from './lib/parts/Wire.js';
 
+function createContraption () {
+  return new RealStone();
+}
+
 export {
+  createContraption,
   RealStone,
   ElectricalSignal,
   Actuator,
