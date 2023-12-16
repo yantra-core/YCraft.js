@@ -1,10 +1,12 @@
 import { RealStone, Button, LEDLight, Wire, Repeater } from '../index.js';
 
 let lightSwitch = new RealStone();
-let button = new Button();
-let repeater = new Repeater(); // Adding the Repeater
+let button = new Button(0, 0, 0);
+let repeater = new Repeater(0, 150, 0); // Adding the Repeater
 let wire = new Wire();
-let ledLight = new LEDLight();
+let ledLight = new LEDLight(300, 150, 0);
+
+
 
 // Connect button to repeater
 button.connect(repeater);

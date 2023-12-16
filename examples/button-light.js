@@ -2,7 +2,7 @@ import { RealStone, Button, LEDLight } from '../index.js';
 
 let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
-let ledLight = new LEDLight(0, 0, 0);
+let ledLight = new LEDLight(150, 0, 0);
 
 // Connect button directly to LED light
 button.connect(ledLight);

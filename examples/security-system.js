@@ -1,38 +1,47 @@
-
 import { RealStone, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Repeater } from '../index.js';
 
-const realStoneSystem = new RealStone();
+let securitySystem = new RealStone();
 
-// Initialize components
-const motionDetector = new MotionDetector();
-const signalAmplifier = new Amplifier();
-const wire = new Wire();
-const pressureSensor = new PressureSensor();
-const securityLight = new LEDLight({ wattage: 60 });
-const manualOverrideButton = new Button();
-const signalRepeater = new Repeater();
+// Initialize and position components
+const motionDetector = new MotionDetector(-150, -250, 0);
+const pressureSensor = new PressureSensor(150, -250, 0);
+const actuator = new Actuator(450, -250, 0);
+const securityLight = new LEDLight(450, 0, 200, { wattage: 60 });
+const manualOverrideButton = new Button(50, 450, 0);
 
-// Connect components
-motionDetector.connect(signalAmplifier);
-signalAmplifier.connect(wire);
-wire.connect(signalRepeater);
-signalRepeater.connect(securityLight);
-pressureSensor.connect(securityLight);
-manualOverrideButton.connect(securityLight);
+// Initialize wires
+const wireFromMotionDetector = new Wire();
+const wireFromPressureSensor = new Wire();
+const wireFromButton = new Wire();
+const wireToLight = new Wire();
 
-// Add components to RealStone system
-realStoneSystem.addPart(motionDetector);
-realStoneSystem.addPart(signalAmplifier);
-realStoneSystem.addPart(wire);
-realStoneSystem.addPart(pressureSensor);
-realStoneSystem.addPart(securityLight);
-realStoneSystem.addPart(manualOverrideButton);
-realStoneSystem.addPart(signalRepeater);
+// Connect components with wires
+motionDetector.connect(wireFromMotionDetector);
+wireFromMotionDetector.connect(actuator);
+
+pressureSensor.connect(wireFromPressureSensor);
+wireFromPressureSensor.connect(actuator);
+
+manualOverrideButton.connect(wireFromButton);
+wireFromButton.connect(actuator);
+
+actuator.connect(wireToLight);
+wireToLight.connect(securityLight);
+
+// Add components and wires to RealStone system
+securitySystem.addPart(motionDetector);
+securitySystem.addPart(pressureSensor);
+securitySystem.addPart(securityLight);
+securitySystem.addPart(manualOverrideButton);
+securitySystem.addPart(actuator);
+securitySystem.addPart(wireFromMotionDetector);
+securitySystem.addPart(wireFromPressureSensor);
+securitySystem.addPart(wireFromButton);
+securitySystem.addPart(wireToLight);
+securitySystem.onAny((event, data) => {
+  console.log(event, data);
+});
+
 
 motionDetector.detectMotion(); // Simulate motion detection
-manualOverrideButton.press(); // Simulate manual override
-
-
-console.log(JSON.stringify(realStoneSystem.toJSON(), true, 2))
-//console.log(realStoneSystem)
-//console.log(realStoneSystem.toJSON().parts)
+//manualOverrideButton.press(); // Simulate manual override

@@ -1,7 +1,7 @@
 import { RealStone, PressureSensor, LEDLight, Wire } from '../index.js';
 
 let pressureSwitch = new RealStone();
-let pressureSensor = new PressureSensor();
+let pressureSensor = new PressureSensor(150, 150, 0);
 let wire = new Wire();
 let ledLight = new LEDLight();
 

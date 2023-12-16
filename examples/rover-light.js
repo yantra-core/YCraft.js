@@ -46,7 +46,7 @@ roverSystem.addPart(ledLight3);
 roverSystem.addPart(redRover);
 
 roverSystem.onAny((event, data) => {
-  console.log(event, data);
+  // console.log(event, data);
 });
 
 // Start moving the Rover

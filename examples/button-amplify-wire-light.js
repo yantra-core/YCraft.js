@@ -1,10 +1,10 @@
 import { RealStone, Button, LEDLight, Wire, Amplifier } from '../index.js';
 
 let lightSwitch = new RealStone();
-let button = new Button();
-let amplifier = new Amplifier({ amplitude: 12 }); // Adding the Amplifier
+let button = new Button(0, 0, 0);
+let amplifier = new Amplifier(150, 0, 0, { amplitude: 12 }); // Adding the Amplifier
 let wire = new Wire();
-let ledLight = new LEDLight();
+let ledLight = new LEDLight(300, 150, 0);
 
 // Connect button to amplifier, and amplifier to wire, then wire to LED light
 button.connect(amplifier);
