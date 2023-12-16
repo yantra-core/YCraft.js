@@ -12,7 +12,7 @@ let ledLight = new LEDLight();
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);

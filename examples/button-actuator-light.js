@@ -11,7 +11,7 @@ let ledLight = new LEDLight(300, 150, 0);
 button.connect(actuator);
 actuator.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(actuator);
 lightSwitch.addPart(ledLight);

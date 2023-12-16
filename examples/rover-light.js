@@ -35,7 +35,7 @@ button2.connect(wire2);
 //wire2.connect(ledLight2);
 wire2.connect(ledLight3);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 roverSystem.addPart(button);
 roverSystem.addPart(button2);
 roverSystem.addPart(wire1);

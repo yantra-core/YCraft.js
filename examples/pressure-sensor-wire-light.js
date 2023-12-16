@@ -9,7 +9,7 @@ let ledLight = new LEDLight();
 pressureSensor.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 pressureSwitch.addPart(pressureSensor);
 pressureSwitch.addPart(wire);
 pressureSwitch.addPart(ledLight);

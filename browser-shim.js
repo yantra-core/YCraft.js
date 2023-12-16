@@ -9,7 +9,7 @@ import LEDLight from './lib/parts/LEDLight.js';
 import Mirror from './lib/parts/Mirror.js';
 import MotionDetector from './lib/parts/MotionDetector.js';
 import PressureSensor from './lib/parts/PressureSensor.js';
-import Repeater from './lib/parts/Repeater.js';
+import Relay from './lib/parts/Relay.js';
 import Rover from './lib/parts/Rover.js';
 import Wire from './lib/parts/Wire.js';
 
@@ -29,7 +29,7 @@ export {
   Mirror,
   MotionDetector,
   PressureSensor,
-  Repeater,
+  Relay,
   Rover,
   Wire,
 

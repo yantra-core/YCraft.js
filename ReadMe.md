@@ -6,10 +6,14 @@ Think of the Minecraft Redstone system using real-world parts. RealStone.js is a
 
 # Design Prinicpals
 
+ Rapid prototyping and design of simulated contraptions
+
  - Quick and easy design and running of simulated contraptions
  - Opt-in Realism, You decide what level of realism your simulation uses
- - Reasonable defaults and conventions for all physics and world settings
+ - Granualar customizable conventions with reasonable defaults configurations
+ - Headless simulations
 
+## A low complexity Light Switch Contraption
 
 ```js
 import { RealStone, Button, LEDLight, Wire } from 'realstone';
@@ -23,7 +27,7 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);
@@ -33,6 +37,11 @@ button.press();
 
 ```
 
+## Super Easy Rendering
+
+TODO blah `SCREENSHOTs` 
+
+RealStone is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
 
 ## Part list
 
@@ -42,7 +51,7 @@ button.press();
 | Wire                 | Redstone Dust             |
 | Transistor           | Redstone Torch            |
 | Power Supply         | Redstone Block            |
-| Repeater             | Redstone Repeater         |
+| Relay             | Redstone Relay         |
 | Amplifier            | Redstone Comparator       |
 | Button               | Button                    |
 | Pressure Sensor      | Pressure Plate            |
@@ -54,33 +63,31 @@ button.press();
 
 More Parts are coming. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/RealStone.js/pulls).
 
-## Super Easy Rendering
+## Realism vs dynamic gameplay
 
-RealStone is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
+### Four methods for turning on a Light Bulb, using the same parts, with increasing realism
 
-## Four ways to to turn on a Light Bulb
+#### Blah blah
 
-### Realism vs dynamic gameplay
-
-Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. RealStone simulations are well suited for varying levels of realism depending on your requirements.
+Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. RealStone simulations are well suited for varying degrees of realism depending on your requirements.
 
 Consider a `Light Switch` contraption. In the following four examples, we demonstrate ascending levels of simulated realism.
 
 ### Most Basic
 
-In this basic example, we create a light switch without any wires or power source, and all parts are at the default position `(0, 0, 0)`.
+In this basic example, we create a light switch without any wires or power source, and all parts will default to position `(0, 0, 0)`.
 
 ```javascript
 import { RealStone, Button, LEDLight } from 'realstone';
 
 let lightSwitch = new RealStone();
-let button = new Button(0, 0, 0);
-let ledLight = new LEDLight(0, 0, 0);
+let button = new Button();
+let ledLight = new LEDLight();
 
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(ledLight);
 
@@ -88,7 +95,7 @@ lightSwitch.addPart(ledLight);
 button.press();
 ```
 
-In this most basic example the entire contraption sits at the (0,0,0) position with no power source. Parts are connected directly to each other without the use of Wires. Triggering the button press event will toggle the light since the two parts are directly connected.
+In this most basic example the entire contraption sits at the `(0, 0, 0)` position with no power source. Parts are connected directly to each other without the use of Wires. Triggering the button press event will toggle the light since the two parts are directly connected.
 
  - no wires used
  - no power source required
@@ -96,7 +103,7 @@ In this most basic example the entire contraption sits at the (0,0,0) position w
 
 ### With Positioning
 
-In this example we create the same contraption, however we apply spatial positioning so each part is laid out on the grid instead of being stacked on top of each other at starting position.
+In this example we create the same contraption, however we apply spatial positioning so each part is laid out on the grid instead of being stacked on top of each other at starting position. Using this configuration, physical contact is *not* required between parts in order for `Signal` to transmit.
 
 
 ```js
@@ -109,7 +116,7 @@ let ledLight = new LEDLight(100, 50, 0);
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(ledLight);
 
@@ -140,7 +147,7 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);
@@ -155,7 +162,7 @@ button.press();
  [] - no power source required
 
 
-### Light with Power
+### Light with Power Supply
 
 All our previous examples assumed infinite free power was available. By changing the `powerRequired` setting we can enable power requirements for the contraption. This means we now need to power our contraption with a power source or it will not work.
 
@@ -174,7 +181,7 @@ powerSupply.connect(wire);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(powerSupply);
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
@@ -190,8 +197,9 @@ button.press();
  [] - wires used
  [] - power source used
 
-## Choose your own adventure
+## Choose your own realisgm style simulations
 
+blah blah , remove? better summary?
 As you can see, this opt-in realism design allows for ideal development of contraptions for gaming.
 
 # Termonologies
@@ -205,6 +213,8 @@ A `Part` is a piece of a contrapation such as 'Button', 'LED Light', 'Wire', or 
 A `Contraption` is a collection of parts which have been connected together in order to process `Signal`. For example, a "Light Switch" contraption could consist of a `Button`, `Wire`, and `LED Light`.
 
 ## Signals
+
+Signals are blah blah blah
 
 ### Electrical Signal
 

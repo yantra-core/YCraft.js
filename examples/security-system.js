@@ -1,4 +1,4 @@
-import { RealStone, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Repeater } from '../index.js';
+import { RealStone, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Relay } from '../index.js';
 
 let securitySystem = new RealStone();
 

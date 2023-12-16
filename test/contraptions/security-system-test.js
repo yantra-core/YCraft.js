@@ -28,7 +28,7 @@ tap.test('Smart Security System Integration Test', (t) => {
     pressureSensor.connect(securityLight);
     manualOverrideButton.connect(securityLight);
 
-    // Add components to RealStone system
+    // Add parts to RealStone system
     realStoneSystem.addPart(motionDetector);
     realStoneSystem.addPart(signalAmplifier);
     realStoneSystem.addPart(wire);

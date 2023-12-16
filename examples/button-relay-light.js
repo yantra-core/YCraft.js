@@ -15,7 +15,7 @@ button.connect(relay);
 relay.connect(wire);
 wire.connect(ledLight);
 
-// Add components to RealStone system
+// Add parts to RealStone system
 lightSwitch.addPart(button);
 lightSwitch.addPart(relay);
 lightSwitch.addPart(wire);
