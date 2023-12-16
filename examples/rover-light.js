@@ -16,7 +16,7 @@ let ledLight3 = new LEDLight(200, 250, 0);
 // Create the Rover
 let redRover = new Rover(0, -200, 0, {
   color: 0xff0000,
-  velocity: { x: -20, y: 0 }
+  velocity: { x: -2, y: 0 }
 });
 
 // Create wires for each button

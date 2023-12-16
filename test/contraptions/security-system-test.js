@@ -6,7 +6,7 @@ import Wire from '../../lib/parts/Wire.js';
 import PressureSensor from '../../lib/parts/PressureSensor.js';
 import LEDLight from '../../lib/parts/LEDLight.js';
 import Button from '../../lib/parts/Button.js';
-import Repeater from '../../lib/parts/Repeater.js';
+import Relay from '../../lib/parts/Relay.js';
 
 tap.test('Smart Security System Integration Test', (t) => {
     const realStoneSystem = new RealStone();
@@ -18,13 +18,13 @@ tap.test('Smart Security System Integration Test', (t) => {
     const pressureSensor = new PressureSensor();
     const securityLight = new LEDLight({ wattage: 60 });
     const manualOverrideButton = new Button();
-    const signalRepeater = new Repeater();
+    const signalRelay = new Relay();
 
     // Connect components
     motionDetector.connect(signalAmplifier);
     signalAmplifier.connect(wire);
-    wire.connect(signalRepeater);
-    signalRepeater.connect(securityLight);
+    wire.connect(signalRelay);
+    signalRelay.connect(securityLight);
     pressureSensor.connect(securityLight);
     manualOverrideButton.connect(securityLight);
 
@@ -35,7 +35,7 @@ tap.test('Smart Security System Integration Test', (t) => {
     realStoneSystem.addPart(pressureSensor);
     realStoneSystem.addPart(securityLight);
     realStoneSystem.addPart(manualOverrideButton);
-    realStoneSystem.addPart(signalRepeater);
+    realStoneSystem.addPart(signalRelay);
 
     // Simulate events
     t.test('Motion Detected Scenario', (subTest) => {

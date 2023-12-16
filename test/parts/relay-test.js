@@ -1,16 +1,16 @@
 import tap from 'tape';
-import Repeater from '../../lib/parts/Repeater.js';
+import Relay from '../../lib/parts/Relay.js';
 import MockComponent from '../fixtures/MockComponent.js';
 
-tap.test('Repeater', (t) => {
-    const repeater = new Repeater();
+tap.test('Relay', (t) => {
+    const relay = new Relay();
     const mockComponent = new MockComponent();
-    repeater.connect(mockComponent);
+    relay.connect(mockComponent);
 
     t.test('retransmission of signal', (subTest) => {
-        repeater.receive('test-signal');
+        relay.receive('test-signal');
         const signalRetransmitted = mockComponent.receivedSignals.includes('test-signal');
-        subTest.ok(signalRetransmitted, 'Repeater should retransmit received signal');
+        subTest.ok(signalRetransmitted, 'Relay should retransmit received signal');
         subTest.end();
     });
 

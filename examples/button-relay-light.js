@@ -1,23 +1,23 @@
-import { RealStone, Button, LEDLight, Wire, Repeater } from '../index.js';
+import { RealStone, Button, LEDLight, Wire, Relay } from '../index.js';
 
 let lightSwitch = new RealStone();
 let button = new Button(0, 0, 0);
-let repeater = new Repeater(0, 150, 0); // Adding the Repeater
+let relay = new Relay(0, 150, 0); // Adding the Relay
 let wire = new Wire();
 let ledLight = new LEDLight(300, 150, 0);
 
 
 
-// Connect button to repeater
-button.connect(repeater);
+// Connect button to Relay
+button.connect(relay);
 
-// Connect repeater to wire, and wire to LED light
-repeater.connect(wire);
+// Connect Relay to wire, and wire to LED light
+relay.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
 lightSwitch.addPart(button);
-lightSwitch.addPart(repeater);
+lightSwitch.addPart(relay);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);
 
