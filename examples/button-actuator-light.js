@@ -3,7 +3,7 @@ import { RealStone, Button, LEDLight, Actuator } from '../index.js';
 let lightSwitch = new RealStone();
 
 let button = new Button(0, 0, 0);
-let actuator = new Actuator(150, 0, 0);
+let actuator = new Actuator(150, 0, 0, { frequency: 1000});
 let ledLight = new LEDLight(300, 150, 0);
 
 
@@ -20,12 +20,6 @@ lightSwitch.addPart(ledLight);
 lightSwitch.onAny((event, data) => {
   console.log(event, data);
 });
-
-
-// Simulate a game loop
-setInterval(() => {
-  lightSwitch.tick();
-}, 1000 ); // delay 1 second
 
 // Simulate pressing the button
 button.press();

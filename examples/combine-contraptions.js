@@ -6,22 +6,17 @@ import { RealStone, Button, LEDLight, Wire } from '../index.js';
 let doorbellButtonContraption = new RealStone(); // Represents the outside doorbell button
 let bellContraption = new RealStone(); // Represents the inside bell
 
-
-
 doorbellButtonContraption.onAny((event, data) => {
   console.log('Door Bell ' + event, data);
 });
-
 
 bellContraption.onAny((event, data) => {
   console.log('Light Switch ' + event, data);
 });
 
-
-
 // Create the components
-let doorbellButton = new Button(); // The doorbell button outside
-let bell = new LEDLight(); // The bell inside, represented by an LED light
+let doorbellButton = new Button(-150, 0, 0); // The doorbell button outside
+let bell = new LEDLight(150, 0, 0); // The bell inside, represented by an LED light
 
 // Add the components to their respective contraptions
 doorbellButtonContraption.addPart(doorbellButton);

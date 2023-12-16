@@ -7,7 +7,7 @@ const motionDetector = new MotionDetector(-150, -250, 0);
 const pressureSensor = new PressureSensor(150, -250, 0);
 const actuator = new Actuator(450, -250, 0);
 const securityLight = new LEDLight(450, 0, 200, { wattage: 60 });
-const manualOverrideButton = new Button(50, 450, 0);
+const manualOverrideButton = new Button(50, 250, 0);
 
 // Initialize wires
 const wireFromMotionDetector = new Wire();

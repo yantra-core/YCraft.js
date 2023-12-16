@@ -4,7 +4,7 @@ let lightSwitch = new RealStone({
   powerRequired: false // default is false, set to true to enforce power requirements
 });
 
-let button = new Button();
+let button = new Button(-150, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight();
 

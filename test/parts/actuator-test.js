@@ -6,19 +6,19 @@ tap.test('Actuator', (t) => {
   const actuator = new Actuator();
 
   t.test('initial state', (subTest) => {
-    subTest.equal(actuator.isActive, false, 'Actuator should be initially inactive');
+    subTest.equal(actuator.isOn, false, 'Actuator should be initially inactive');
     subTest.end();
   });
 
   t.test('activation', (subTest) => {
-    actuator.receive('activate');
-    subTest.equal(actuator.isActive, true, 'Actuator should be active after receiving "activate" signal');
+    actuator.receive('on');
+    subTest.equal(actuator.isOn, true, 'Actuator should be active after receiving "on" signal');
     subTest.end();
   });
 
   t.test('deactivation', (subTest) => {
-    actuator.receive('deactivate');
-    subTest.equal(actuator.isActive, false, 'Actuator should be inactive after receiving "deactivate" signal');
+    actuator.receive('off');
+    subTest.equal(actuator.isOn, false, 'Actuator should be inactive after receiving "off" signal');
     subTest.end();
   });
   t.test('update method with activation', (subTest) => {
