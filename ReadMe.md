@@ -1,76 +1,144 @@
-# RealStone.js
+# RealStone.js - Simulated Crafting System using Real Parts
 
-## JavaScript Crafting System using Real Components
+## Build contrapations with parts.
 
-Think the MineCraft RedStone system, using real-world components. Great for building JavaScript games or educational tools.
+Think the MineCraft RedStone system, using real-world parts. RealStone.js is a simulation focused library great for building games or educational tools. RealStone handles all aspects of your simultion while emitting events that other outside ystems can interact with. 
 
-
-# Goals
-
- 
 # Design Prinicpals
 
- - Simulates common real-world parts using accurate physics
- - Be able to quickly simulate any contraption 
- - Opt-in Realism
-   - You decide what level of realism your contraption has
-   - Provide reasonable defaults and conventions for all settings
+ - Quick and easy design and running of simulated contraptions
+ - Opt-in Realism, You decide what level of realism your simulation uses
+ - Reasonable defaults and conventions for all physics and world settings
 
-## Component Groups
+## Part list
 
-- Sensors
+## TODO blah add check lists for missing parts? do something
 
-Devices that detect changes in the environment or receive inputs.
+| RealStone Part       | Minecraft Equivalent      |
+|----------------------|---------------------------|
+| Wire                 | Redstone Dust             |
+| Transistor           | Redstone Torch            |
+| Power Supply         | Redstone Block            |
+| Repeater             | Redstone Repeater         |
+| Amplifier            | Redstone Comparator       |
+| Button               | Button                    |
+| Pressure Sensor      | Pressure Plate            |
+| Impact Sensor        | Target Block              |
+| Motion Detector      | Observer                  |
+| LED Light            | Redstone Lamp             |
 
- - Laser Sensor
- - Photodetector
- - Pressure Sensor
- - Motion Detector
- - ImpactSensor
- - TamperSensor
+
+| RealStone Part       | Minecraft Equivalent      |
+|----------------------|---------------------------|
+| Wire                 | Redstone Dust             |
+| Transistor           | Redstone Torch            |
+| Power Supply         | Redstone Block            |
+| Repeater             | Redstone Repeater         |
+| Amplifier            | Redstone Comparator       |
+| Lever                | Lever                     |
+| Button               | Button                    |
+| Pressure Sensor      | Pressure Plate            |
+| Laser Sensor         | Tripwire Hook and String  |
+| Impact Sensor        | Target Block              |
+| Motion Detector      | Observer                  |
+| Actuator             | Piston                    |
+| Electro Actuator     | Sticky Piston             |
+| Dispenser            | Dispenser and Dropper     |
+| Conveyor Belt        | Hopper                    |
+| Tamper Sensor        | Trapped Chest             |
+| LED Light            | Redstone Lamp             |
+| Photodetector        | Daylight Sensor           |
 
 
-- Actuators and Motors
- - Actuator
+We are working towards adding for more parts. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/RealStone.js/pulls).
 
-- Signal Processing and Control
- - Amplifier, Transistor, Repeater
 
-- Switches and Triggers
+```js
+import { RealStone, Button, LEDLight, Wire } from '../index.js';
 
-- Power Management
- - PowerSupply
+let realStoneSystem = new RealStone();
+let button = new Button(0, 0, 0);
+let wire = new Wire();
+let ledLight = new LEDLight(100, 50, 0);
 
-- Light and Optics
- - LEDLight, Mirror
+// Connect button to wire, and wire to LED light
+button.connect(wire);
+wire.connect(ledLight);
 
-- Dispensing and Storage
- - Dispenser
+// Add components to RealStone system
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(ledLight);
 
-- Connectivity
- - Wire
+// Simulate pressing the button
+button.press();
 
-- Signals
-  - Light
-  - Electrical
+```
 
-- Data Cables
-  - USB2
+## Super Easy Rendering
 
-- Environmental Interaction
-- User Interface
-- Sound and Audio
-- Energy Conversion and Storage
+RealStone is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
 
 ## Four ways to to turn on a Light Bulb
 
-### Most basic
+### Realism vs dynamic gameplay
+
+Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. RealStone simulations are well suited for varying levels of realism depending on your requirements.
+
+Consider a `Light Switch` contraption. In the following four examples, we demonstrate ascending levels of simulated realism.
+
+### Most Basic
+
+In this basic example, we create a light switch without any wires or power source, and all parts are at the default position `(0, 0, 0)`.
+
+```javascript
+import { RealStone, Button, LEDLight } from '../index.js';
+
+let realStoneSystem = new RealStone();
+let button = new Button(0, 0, 0);
+let ledLight = new LEDLight(0, 0, 0);
+
+// Connect button directly to LED light
+button.connect(ledLight);
+
+// Add components to RealStone system
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(ledLight);
+
+// Simulate pressing the button
+button.press();
+```
+
+
+In this most basic example the entire contraption sits at the (0,0,0) position with no power source. Parts are connected directly to each other without the use of Wires. Triggering the button press event will toggle the light since the two parts are directly connected.
 
  - no wires used
  - no power source required
  - no spatial awareness ( coordinates ) of parts
 
-### With Position
+### With Positioning
+
+In this example we create the same contraption, however we apply spatial positioning so each part is laid out on the grid instead of being stacked on top of each other at starting position.
+
+
+```js
+import { RealStone, Button, LEDLight } from '../index.js';
+
+let realStoneSystem = new RealStone();
+let button = new Button(0, 0, 0);
+let ledLight = new LEDLight(100, 50, 0);
+
+// Connect button directly to LED light
+button.connect(ledLight);
+
+// Add components to RealStone system
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(ledLight);
+
+// Simulate pressing the button
+button.press();
+
+```
 
  [] - Has spatial position
  - no wires used
@@ -79,79 +147,109 @@ Devices that detect changes in the environment or receive inputs.
 
 ### With Wire
 
+Instead of directly connecting the parts together, we can uses `Wires` to connect parts. A wire has `inputs`, `outputs`, carries `Signal`, and may optionally have eletrical resistance or binary data encoding applied to the `Signal` as it pases through.
+
+
+```js
+import { RealStone, Button, LEDLight, Wire } from '../index.js';
+
+let realStoneSystem = new RealStone();
+let button = new Button(0, 0, 0);
+let wire = new Wire();
+let ledLight = new LEDLight(100, 50, 0);
+
+// Connect button to wire, and wire to LED light
+button.connect(wire);
+wire.connect(ledLight);
+
+// Add components to RealStone system
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(ledLight);
+
+// Simulate pressing the button
+button.press();
+
+```
+
  [] - Has spatial position
  [] - wires used
  - no power source required
 
 
-### With Power
+### Light with Power
+
+All our previous examples assumed infinite free power was available. By changing the `powerRequired` setting we can enable power requirements for the contraption. This means we now need to power our contraption with a power source or it will not work.
+
+
+```js
+import { RealStone, Button, LEDLight, Wire, PowerSupply } from '../index.js';
+
+let realStoneSystem = new RealStone({ powerRequired: true });
+let button = new Button(0, 0, 0);
+let wire = new Wire(); // TODO: wire settings
+let ledLight = new LEDLight(100, 50, 0); // TOOD: power watter
+let powerSupply = new PowerSupply(200, 0, 0); // Adding a power supply // TODO: power settings
+
+// Connect power supply to wire, and wire to other components
+powerSupply.connect(wire);
+button.connect(wire);
+wire.connect(ledLight);
+
+// Add components to RealStone system
+realStoneSystem.addPart(powerSupply);
+realStoneSystem.addPart(button);
+realStoneSystem.addPart(wire);
+realStoneSystem.addPart(ledLight);
+
+// Simulate pressing the button
+button.press();
+
+```
+
 
  [] - Has spatial position
  [] - wires used
  [] - power source used
 
+## Choose your own adventure
 
+As you can see, this opt-in realism design allows for ideal development of contraptions for gaming.
 
+# Termonologies
 
-## Component list
+## Parts
+
+A `Part` is a piece of a contrapation such as 'Button', 'LED Light', 'Wire', or 'Power Supply'. Parts are independant units which may be connected to other parts. Parts receive and send `Signals`. Parts will emit events relevant to their specifc functionality which you can optionally listen for.
+
+## Contraptions
+
+A `Contraption` is a collection of parts which have been connected together in order to process `Signal`. For example, a "Light Switch" contraption could consist of a `Button`, `Wire`, and `LED Light`.
+
+## Signals
+
+### Electrical Signal
+
+Electrical signals can also be encoded to data formats like USB through setting values like dPlusVoltage and dMinusVoltage
 
 ```
-{
-    "Wire": {
-        "minecraft_name": "Redstone Dust"
-    },
-    "Transistor": {
-        "minecraft_name": "Redstone Torch"
-    },
-    "Power Supply": {
-        "minecraft_name": "Redstone Block"
-    },
-    "Repeater": {
-        "minecraft_name": "Redstone Repeater"
-    },
-    "Amplifier": {
-        "minecraft_name": "Redstone Comparator"
-    },
-    "Lever": {
-        "minecraft_name": "Lever"
-    },
-    "Button": {
-        "minecraft_name": "Button"
-    },
-    "Pressure Sensor": {
-        "minecraft_name": "Pressure Plate"
-    },
-    "Laser Sensor": {
-        "minecraft_name": "Tripwire Hook and String"
-    },
-    "Impact Sensor": {
-        "minecraft_name": "Target Block"
-    }
-    "Motion Detector": {
-        "minecraft_name": "Observer"
-    },
-    "Actuator": {
-        "minecraft_name": "Piston"
-    },
-    "Electro Actuator": {
-        "minecraft_name": "Sticky Piston"
-    },
-    "Dispenser": {
-        "minecraft_name": "Dispenser and Dropper"
-    },
-    "Conveyor Belt": {
-        "minecraft_name": "Hopper"
-    },
-    "Tamper Sensor": {
-        "minecraft_name": "Trapped Chest"
-    },
-    "LED Light": {
-        "minecraft_name": "Redstone Lamp"
-    },
-    "Photodetector": {
-        "minecraft_name": "Daylight Sensor"
-    }
-}
+voltage = 5,    // Volts
+current = 1,    // Amps
+resistance = 0, // Ohms
+capacitance = 0, // Farads
+inductance = 0, // Henrys
+frequency = 0,  // Hertz (important for AC)
+phaseAngle = 0, // Degrees (important for AC)
+powerFactor = 1 // Unitless (important for AC)
+```
+
+### Light Signal
+
+Light signals are used for optics like `LED Light` or `Laser`.
+```
+intensity = 1,      // Light intensity (arbitrary units)
+wavelength = 550,   // Wavelength in nanometers (visible light spectrum)
+direction = 0       // Direction of light in degrees
 ```
 
 
