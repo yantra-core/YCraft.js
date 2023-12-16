@@ -1,6 +1,6 @@
 import { RealStone, Button, LEDLight, Wire } from '../index.js';
 
-let realStoneSystem = new RealStone({
+let lightSwitch = new RealStone({
   powerRequired: false // default is false, set to true to enforce power requirements
 });
 let button = new Button(0, 0, 0);
@@ -12,9 +12,13 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add components to RealStone system
-realStoneSystem.addPart(button);
-realStoneSystem.addPart(wire);
-realStoneSystem.addPart(ledLight);
+lightSwitch.addPart(button);
+lightSwitch.addPart(wire);
+lightSwitch.addPart(ledLight);
+
+lightSwitch.onAny((event, data) => {
+  console.log(event, data);
+});
 
 // Simulate pressing the button
 button.press();
