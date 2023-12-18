@@ -25,6 +25,8 @@ function roverLight() {
   let wire1 = new Wire();
   let wire2 = new Wire();
 
+  contraption.addPart(redRover);
+
   // Connect the first button to the first and second LED lights
   button.connect(wire1);
   wire1.connect(ledLight1);
@@ -45,7 +47,6 @@ function roverLight() {
   contraption.addPart(ledLight1);
   contraption.addPart(ledLight2);
   contraption.addPart(ledLight3);
-  contraption.addPart(redRover);
 
   contraption.onAny((event, data) => {
     // console.log(event, data);
@@ -53,10 +54,12 @@ function roverLight() {
 
   // Start moving the Rover
   // Since no collision system is being used, the Rover will move through the LED lights without triggering them
-  redRover.startMoving();
+  redRover.start();
   return contraption;
 
 }
 
 export default roverLight;
 
+// Simulate pressing the button
+roverLight();

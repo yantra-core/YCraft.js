@@ -2,10 +2,10 @@ import { RealStone, Button, LEDLight, Wire, Amplifier } from '../index.js';
 
 function amplifiedLight () {
   let contraption = new RealStone();
-  let button = new Button(0, 0, 0);
-  let amplifier = new Amplifier(150, 0, 0, { voltage: 20, amplitude: 400 }); // Adding the Amplifier
+  let button = new Button(0, -150, 0);
+  let amplifier = new Amplifier(150, -150, 0, { voltage: 20, amplitude: 400 }); // Adding the Amplifier
   let wire = new Wire();
-  let ledLight = new LEDLight(300, 150, 0);
+  let ledLight = new LEDLight(300, -300, 0);
   
   // Connect button to amplifier, and amplifier to wire, then wire to LED light
   button.connect(amplifier);
@@ -22,6 +22,7 @@ function amplifiedLight () {
     console.log(event, data);
   });
 
+
   return contraption;
   
 }
@@ -29,4 +30,4 @@ function amplifiedLight () {
 export default amplifiedLight;
 
 // Simulate pressing the button
-amplifiedLight().button.press();
+amplifiedLight().start();

@@ -11,13 +11,10 @@ function lightButton() {
   // Add parts to RealStone system
   contraption.addPart(button);
   contraption.addPart(ledLight);
-
+  
   contraption.onAny((event, data) => {
     console.log(event, data);
   });
-
-  // Simulate pressing the button
-  button.press();
 
   return contraption;
 
@@ -25,5 +22,5 @@ function lightButton() {
 
 export default lightButton;
 
-
-lightButton();
+// Uncomment the following line to run this example:
+lightButton().start(); 

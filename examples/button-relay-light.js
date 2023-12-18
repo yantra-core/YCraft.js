@@ -3,10 +3,10 @@ import { RealStone, Button, LEDLight, Wire, Relay } from '../index.js';
 function buttonRelayLight () {
 
   let contraption = new RealStone();
-  let button = new Button(0, 0, 0);
-  let relay = new Relay(0, 150, 0); // Adding the Relay
+  let button = new Button(0, -150, 0);
+  let relay = new Relay(300, -150, 0); // Adding the Relay
   let wire = new Wire();
-  let ledLight = new LEDLight(300, 150, 0);
+  let ledLight = new LEDLight(300, -300, 0);
   
   // Connect button to Relay
   button.connect(relay);
@@ -32,4 +32,4 @@ function buttonRelayLight () {
 export default buttonRelayLight;
 
 // Simulate pressing the button
-buttonRelayLight().press();
+buttonRelayLight().start();

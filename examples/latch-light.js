@@ -3,8 +3,8 @@ import { RealStone, Latch, LEDLight } from '../index.js';
 function latchLight() {
 
   let contraption = new RealStone();
-  let latch = new Latch(0, -150, 0 );
-  let ledLight = new LEDLight(150, -150, 0);
+  let latch = new Latch(0, -300, 0 );
+  let ledLight = new LEDLight(150, -300, 0);
 
   // Connect button directly to LED light
   latch.connect(ledLight);
