@@ -1,8 +1,8 @@
 import { RealStone, Button, LEDLight, Wire, Relay } from '../index.js';
 
-function buttonRelayLight () {
+function buttonRelayLight (x = 0, y = 0, z = 0) {
 
-  let contraption = new RealStone();
+  let contraption = new RealStone(x, y, z);
   let button = new Button(0, -150, 0);
   let relay = new Relay(300, -150, 0); // Adding the Relay
   let wire = new Wire();

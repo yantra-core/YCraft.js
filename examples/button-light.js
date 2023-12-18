@@ -1,7 +1,7 @@
 import { RealStone, Button, LEDLight } from '../index.js';
 
-function lightButton() {
-  let contraption = new RealStone();
+function lightButton(x, y, z) {
+  let contraption = new RealStone(x, y, z);
   let button = new Button(0, -150, 0);
   let ledLight = new LEDLight(150, -150, 0);
 

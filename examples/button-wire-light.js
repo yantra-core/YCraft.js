@@ -1,7 +1,7 @@
 import { RealStone, Button, LEDLight, Wire } from '../index.js';
 
-function buttonWireLight () {
-  let contraption = new RealStone({
+function buttonWireLight (x = 0, y = 0, z = 0) {
+  let contraption = new RealStone(x, y, z, {
     powerRequired: false // default is false, set to true to enforce power requirements
   });
   let button = new Button(0, -150, 0);

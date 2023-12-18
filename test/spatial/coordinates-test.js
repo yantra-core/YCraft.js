@@ -3,7 +3,7 @@ import tap from 'tap';
 
 tap.test('RealStone Coordinate System Tests', (t) => {
   t.test('lightButton contraption coordinates', (t) => {
-    let lightButton = new RealStone();
+    let lightButton = new RealStone(0, 0, 0);
     let button = new Button(0, -150, 0, { latching: true });
     let ledLight = new LEDLight(150, -150, 0);
 

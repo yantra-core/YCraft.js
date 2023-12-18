@@ -1,8 +1,8 @@
 import { RealStone, Button, LEDLight, Wire, Rover } from '../index.js';
 
-function roverLight() {
+function roverLight(x, y, z) {
 
-  let contraption = new RealStone({
+  let contraption = new RealStone(x, y, z, {
     powerRequired: false
   });
 
