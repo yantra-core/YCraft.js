@@ -5,6 +5,7 @@ import Actuator from './lib/parts/Actuator.js';
 import Amplifier from './lib/parts/Amplifier.js';
 import Button from './lib/parts/Button.js';
 import LaserSensor from './lib/parts/LaserSensor.js';
+import Latch from './lib/parts/Latch.js';
 import LEDLight from './lib/parts/LEDLight.js';
 import Mirror from './lib/parts/Mirror.js';
 import MotionDetector from './lib/parts/MotionDetector.js';
@@ -20,6 +21,7 @@ export {
   Amplifier,
   Button,
   LaserSensor,
+  Latch,
   LEDLight,
   Mirror,
   MotionDetector,
