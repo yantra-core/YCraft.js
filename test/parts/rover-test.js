@@ -16,12 +16,12 @@ tap.test('Rover Constructor', (t) => {
 // Test toggleOnOff method
 tap.test('Rover toggleOnOff', (t) => {
   const rover = new Rover();
-  rover.toggle();
+  rover.start();
 
   t.equal(rover.isOn, true, 'Rover should be turned on');
   t.equal(rover.state, 'active', 'Rover state should be active');
 
-  rover.toggle();
+  rover.stop();
   t.equal(rover.isOn, false, 'Rover should be turned off');
   t.equal(rover.state, 'inactive', 'Rover state should be inactive');
   t.end();
@@ -32,7 +32,7 @@ tap.test('Rover toggleOnOff', (t) => {
 // Example test for handleCollision
 tap.test('Rover handleCollision', (t) => {
   const rover = new Rover();
-  rover.toggle(); // Start the rover
+  rover.start(); // Start the rover
 
   // Simulate a collision
   rover.handleCollision({ name: 'OtherPart' });
@@ -41,7 +41,7 @@ tap.test('Rover handleCollision', (t) => {
   t.equal(rover.props.velocity.x, -5, 'Velocity x should be reversed');
   t.equal(rover.props.velocity.y, -5, 'Velocity y should be reversed');
 
-  rover.stopMoving(); // Stop the rover
+  rover.stop(); // Stop the rover
   t.end();
 });
 
