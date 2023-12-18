@@ -1,5 +1,10 @@
 import { RealStone, Button, Latch, LEDLight, Actuator } from '../index.js';
 
+
+function multipleContraptions () {
+  // TODO  
+}
+
 function lightSwitchContraption() {
   let lightSwitch = new RealStone(0, 0, 0);
 
@@ -68,6 +73,8 @@ function lightButtonContraption() {
   button.press();
 }
 
+/*
 lightButtonContraption();
 lightLatchContraption();
 lightSwitchContraption();
+*/

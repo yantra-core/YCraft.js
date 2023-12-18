@@ -1,19 +1,28 @@
 import { RealStone, Latch, LEDLight } from '../index.js';
 
-let lightLatch = new RealStone();
-let latch = new Latch(0, -150, 0);
-let ledLight = new LEDLight(150, -150, 0);
+function latchLight() {
 
-// Connect button directly to LED light
-latch.connect(ledLight);
+  let contraption = new RealStone();
+  let latch = new Latch(0, -150, 0);
+  let ledLight = new LEDLight(150, -150, 0);
 
-// Add parts to RealStone system
-lightLatch.addPart(latch);
-lightLatch.addPart(ledLight);
+  // Connect button directly to LED light
+  latch.connect(ledLight);
 
-lightLatch.onAny((event, data) => {
-  console.log(event, data);
-});
+  // Add parts to RealStone system
+  contraption.addPart(latch);
+  contraption.addPart(ledLight);
+
+  contraption.onAny((event, data) => {
+    console.log(event, data);
+  });
+
+  return contraption;
+
+}
+
+
+export default latchLight;
 
 // Simulate engaging the latch
-latch.engage();
+latchLight().engage();

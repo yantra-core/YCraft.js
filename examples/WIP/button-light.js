@@ -16,14 +16,11 @@ function lightButton() {
     console.log(event, data);
   });
 
-  // Simulate pressing the button
-  button.press();
-
-  return contraption;
+  return button;
 
 }
 
 export default lightButton;
 
-
-lightButton();
+// Simulate pressing the button
+lightButton().press();

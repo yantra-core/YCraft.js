@@ -3,9 +3,10 @@ import fs from 'fs/promises';
 import path from 'path';
 import axios from 'axios';
 
-const etherspaceEndpoint = 'http://192.168.1.80:8889/api/v1/contraption';
+let etherspaceEndpoint = 'http://192.168.1.80:8889/api/v1/contraption';
+//etherspaceEndpoint = 'https://etherspace.ayyo.gg/api/v1/contraption';
 
-async function uploadContraptions() {
+async function uploadContraptions2() {
   try {
     const files = await fs.readdir('./examples');
     const jsFiles = files.filter(file => file.endsWith('.js'));
@@ -28,6 +29,7 @@ async function uploadContraptions() {
         const line = lines[i];
         if (line.includes('new RealStone')) {
           const variableName = line.split(' ')[1].trim();
+          console.log('using variableName', variableName)
           windowLine = `\n\nwindow.realStoneSystem = ${variableName};`;
         }
       }
@@ -38,6 +40,13 @@ async function uploadContraptions() {
       // replace all 'new ' strings with 'new RS.'
       content = content.replace(/new /g, 'new RS.');
       
+      // remove any line starts with the word 'export'
+      content = content.replace(/export.*/g, '');
+
+      // remove the last two lines of the code
+      // this is done to remove the part.press() / part.trigger() / etc. lines in the demo code
+      content = content.split('\n').slice(0, -2).join('\n');
+
       content+= windowLine;
 
       const payload = {
@@ -48,7 +57,7 @@ async function uploadContraptions() {
       console.log(`${etherspaceEndpoint}/${name}`)
       console.log(payload)
 
-      let upload = true;
+      let upload = false;
       if (upload) {
         const response = await axios.post(`${etherspaceEndpoint}/${name}`, payload, {
           headers: {
@@ -65,4 +74,77 @@ async function uploadContraptions() {
   }
 }
 
+// uploadContraptions();
+
+async function uploadContraptions() {
+  try {
+    const files = await fs.readdir('./examples');
+    const jsFiles = files.filter(file => file.endsWith('.js'));
+
+    let compositeContent = '';
+
+    for (const file of jsFiles) {
+      let content = await fs.readFile(`./examples/${file}`, 'utf8');
+
+      // Process the content for individual upload
+      let processedContent = processContent(content);
+
+      // Upload each individual demo
+      const name = path.basename(file, '.js');
+      await uploadDemo(name, processedContent);
+
+      // Add the processed content to the composite content
+      compositeContent += processedContent + '\n\n';
+    }
+
+    // Upload the composite demo
+    await uploadDemo('CompositeContraption', compositeContent);
+  } catch (error) {
+    console.error('Error uploading contraptions:', error);
+  }
+}
+
+function processContent(content) {
+  content = content.replace(/'\.\.\/index\.js'/g, "'realstone'");
+  content = content.replace(/import.*/g, '');
+  // replace all 'new ' strings with 'new RS.'
+
+  content = content.replace(/new /g, 'new RS.');
+
+  content = content.replace(/import.*/g, '');
+  // remove any line starts with the word 'export'
+  // content = content.replace(/export.*/g, '');
+
+    // remove the last two lines of the code
+  // this is done to remove the part.press() / part.trigger() / etc. lines in the demo code
+  content = content.split('\n').slice(0, -2).join('\n');
+
+
+  return content;
+}
+
+async function uploadDemo(name, content) {
+  const payload = {
+    name,
+    owner: 'Marak',
+    code: content
+  };
+
+  console.log(`${etherspaceEndpoint}/${name}`);
+  console.log(payload);
+
+  let upload = true;
+  if (upload) {
+    const response = await axios.post(`${etherspaceEndpoint}/${name}`, payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    console.log(`Uploaded ${name}: Status ${response.status}`);
+}
+  }
+
+  
+
 uploadContraptions();
+

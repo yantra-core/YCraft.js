@@ -1,22 +1,33 @@
 import { RealStone, PressureSensor, LEDLight, Wire } from '../index.js';
 
-let pressureSwitch = new RealStone();
-let pressureSensor = new PressureSensor(150, 150, 0);
-let wire = new Wire();
-let ledLight = new LEDLight();
+function pressureSensorWireLight () {
 
-// Connect pressure sensor to wire, and wire to LED light
-pressureSensor.connect(wire);
-wire.connect(ledLight);
+  let contraption = new RealStone();
+  let pressureSensor = new PressureSensor(150, 150, 0);
+  let wire = new Wire();
+  let ledLight = new LEDLight();
+  
+  // Connect pressure sensor to wire, and wire to LED light
+  pressureSensor.connect(wire);
+  wire.connect(ledLight);
+  
+  // Add parts to RealStone system
+  contraption.addPart(pressureSensor);
+  contraption.addPart(wire);
+  contraption.addPart(ledLight);
+  
+  contraption.onAny((event, data) => {
+    console.log(event, data);
+  });
 
-// Add parts to RealStone system
-pressureSwitch.addPart(pressureSensor);
-pressureSwitch.addPart(wire);
-pressureSwitch.addPart(ledLight);
+  return contraption;
 
-pressureSwitch.onAny((event, data) => {
-  console.log(event, data);
-});
+}
+
+
+export default pressureSensorWireLight;
+
+
 
 // Simulate triggering the pressure sensor
-pressureSensor.trigger();
+pressureSensorWireLight().trigger();

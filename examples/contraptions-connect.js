@@ -2,7 +2,10 @@
 // In most cases you will want to use a single contraption with multiple parts, but there are cases where you may want to use multiple contraptions
 import { RealStone, Button, LEDLight, Wire } from '../index.js';
 
-// Create the RealStone instances for each contraption
+// TODO: fix this
+function connectedContraptions () {
+
+  // Create the RealStone instances for each contraption
 let doorbellButtonContraption = new RealStone(); // Represents the outside doorbell button
 let bellContraption = new RealStone(); // Represents the inside bell
 
@@ -24,6 +27,11 @@ bellContraption.addPart(bell);
 
 // Connect the doorbell button to the bell (even though they are in separate contraptions)
 doorbellButton.connect(bell);
+
+}
+
+export default connectedContraptions;
+
 
 // Simulating someone pressing the doorbell button
 doorbellButton.press(); // This should 'ring' the bell (turn on the LED light) in the bell contraption
