@@ -30,7 +30,7 @@ async function uploadContraptions2() {
         if (line.includes('new AyCraft')) {
           const variableName = line.split(' ')[1].trim();
           console.log('using variableName', variableName)
-          windowLine = `\n\nwindow.realStoneSystem = ${variableName};`;
+          windowLine = `\n\nwindow.ayCraftSystem = ${variableName};`;
         }
       }
 

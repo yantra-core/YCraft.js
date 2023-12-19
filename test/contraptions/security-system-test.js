@@ -9,7 +9,7 @@ import Button from '../../lib/parts/Button.js';
 import Relay from '../../lib/parts/Relay.js';
 
 tap.test('Smart Security System Integration Test', (t) => {
-    const realStoneSystem = new AyCraft();
+    const ayCraftSystem = new AyCraft();
 
     // Set up components
     const motionDetector = new MotionDetector();
@@ -29,13 +29,13 @@ tap.test('Smart Security System Integration Test', (t) => {
     manualOverrideButton.connect(securityLight);
 
     // Add parts to AyCraft system
-    realStoneSystem.addPart(motionDetector);
-    realStoneSystem.addPart(signalAmplifier);
-    realStoneSystem.addPart(wire);
-    realStoneSystem.addPart(pressureSensor);
-    realStoneSystem.addPart(securityLight);
-    realStoneSystem.addPart(manualOverrideButton);
-    realStoneSystem.addPart(signalRelay);
+    ayCraftSystem.addPart(motionDetector);
+    ayCraftSystem.addPart(signalAmplifier);
+    ayCraftSystem.addPart(wire);
+    ayCraftSystem.addPart(pressureSensor);
+    ayCraftSystem.addPart(securityLight);
+    ayCraftSystem.addPart(manualOverrideButton);
+    ayCraftSystem.addPart(signalRelay);
 
     // Simulate events
     t.test('Motion Detected Scenario', (subTest) => {

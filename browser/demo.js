@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async (event) => {
 
-  //return realStoneSystem;
+  //return ayCraftSystem;
 
   let game = new MANTRA.Game({
     physics: 'matter', // enum, 'physx', 'matter
