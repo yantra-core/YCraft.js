@@ -7,13 +7,11 @@
 </p>
 
 <h4 align="center">
-  <a href="#key">Key Principals</a> •
   <a href="https://yantra.gg/aycraft">Live Demos</a> •
-  <a href="#installation">Installation</a> •
-  <a href="#light">Light Switch Examples</a> •
-  <a href="#usage">Termonologies</a> •
+  <a href="#install">Installation</a> •
+  <a href="#light">Usage</a> •
+  <a href="#terms">Termonologies</a> •
   <a href="#parts">Parts List</a> •
-  <a href="#usage">Usage</a> •
   <a href="#contributing">Contributing</a>
 </h4>
 
@@ -21,102 +19,127 @@
 
 AyCraft.js is a versatile JavaScript library for building, simulating, and managing `Contraptions`. AyCraft handles all aspects of your simulation while emitting events other outside systems can interact with.
 
-A growing list of `Parts` is available, and we aim to support all commonly known items. AyCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
+A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. AyCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
 
 # AyCraft.js Key Design Prinicpals
 
 - Rapid Prototyping of simulated contraptions
 - Opt-in Realism - Tailor the level of realism to fit your project's needs
 - Granualar configurations with reasonable default conventions
-- Headless Simulations
 - Event-driven architecture allowing for seamless integration with external systems
+- Headless Simulations
 
 ## Contraption Rendering
 
 TODO `SCREENSHOTS` 
 
-AyCraft.js itself has no knowledge of graphics. You can render contraptions in the browser using [mantra.js](https://github.com/yantra-core/mantra). Mantra.js is one-liner CDN include and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
+Here you can find a live demo of rendering contraptions with Mantra.js.
+ 
+ - [yantra link](https://yantra.gg/aycraft)
+ - CodePen Link: [CodePen](https://codepen.io/)
 
-You can find a live demo of contraptions here: [yantra link](https://yantra.gg/aycraft)
-CodePen Link: [CodePen](https://codepen.io/)
 
-To run these same demos locally without having to install or depend on anything, open the html file found in this repository: see: `./examples/browser/index.html`
+AyCraft.js itself has no knowledge of graphics. Contraptions can be rendered however you wish.
 
-## A low complexity Light Switch Contraption
+Including [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
 
-```js
-import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
+To run these same demos locally without having to install or depend on anything, open the html file found in this 
+repository: see: `./examples/browser/index.html`
 
-let contraption = new AyCraft();
-let button = new Button();
-let wire = new Wire();
-let ledLight = new LEDLight();
+<a name="install"></a>
+## Installation
 
-// Connect button to wire, and wire to LED light
-button.connect(wire);
-wire.connect(ledLight);
+### From CDN
 
-// Add parts to AyCraft system
-contraption.addPart(button);
-contraption.addPart(wire);
-contraption.addPart(ledLight);
+```html
+<script src="https://yantra.gg/aycraft.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    let contraption = new AY.craft();
+    let button = new AY.Button();
+    let wire = new AY.Wire();
+    let ledLight = new AY.LEDLight();
 
-contraption.onAny((event, data) => {
-  console.log(event, data);
-});
+    // Connect button to wire, and wire to LED light
+    button.connect(wire);
+    wire.connect(ledLight);
 
-// Simulate pressing the button
-button.press();
+    // Add parts to AyCraft system
+    contraption.addPart(button);
+    contraption.addPart(wire);
+    contraption.addPart(ledLight);
+
+    contraption.onAny((event, data) => {
+      console.log(event, data);
+    });
+
+    // Simulate pressing the button
+    button.press();    
+  });
+</script>
 
 ```
+
+
+### From NPM
+
+```bash
+npm install aycraft
+```
+
+See: `./examples/` folder for node.js example code.
 
 <a name="parts"></a>
 ## `Part` List
 
 If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/AyCraft.js/pulls).
 
-
+see: [./lib/parts](https://github.com/yantra-core/AyCraft.js/tree/master/lib/parts)
 
 - [x] Wire
-- [x] Transistor
 - [x] Power Supply
 - [x] Relay
 - [x] Amplifier
-- [x] Button
-- [x] Pressure Sensor
-- [x] Impact Sensor
-- [x] Motion Detector
 - [x] LED Light
-- [x] Actuator
-- [x] Conveyor Belt
+- [x] Button
 - [x] Latch
-- [x] Switch
-- [x] Dispenser
-- [x] Lever
-- [x] Mirror
-- [x] Tamper Sensor
-- [x] Capacitor
-- [x] Laser Sensor
-- [x] Photodetector
-- [x] Rotary Switch
-- [x] Clock
+- [x] Pressure Sensor
+- [x] Motion Detector
+- [x] Actuator
 - [x] Rover
 - [ ] Cart
 - [ ] Track
+- [ ] Transistor
+- [ ] Impact Sensor
+- [ ] Conveyor Belt
+- [ ] Switch
+- [ ] Dispenser
+- [ ] Lever
+- [ ] Mirror
+- [ ] Tamper Sensor
+- [ ] Capacitor
+- [ ] Laser Sensor
+- [ ] Photodetector
+- [ ] Rotary Switch
+- [ ] Clock
 
 ## Logic Parts
 
-- [x] And Gate
-- [x] Memory Register
-- [x] Nor Gate
-- [x] Or Gate
-- [x] Xnor Gate
-- [x] Counter
-- [x] Nand Gate
-- [x] Not Gate
-- [x] Xor Gate
+see: [./lib/parts/logic](https://github.com/yantra-core/AyCraft.js/tree/master/lib/parts/logic)
+
+- [ ] And Gate
+- [ ] Nor Gate
+- [ ] Or Gate
+- [ ] Xnor Gate
+- [ ] Nand Gate
+- [ ] Not Gate
+- [ ] Xor Gate
+- [ ] Counter
+- [ ] Memory Register
 
 ## Signals
+
+see: [./lib/signals](https://github.com/yantra-core/AyCraft.js/tree/master/lib/signals)
 
 - [x] Electrical Signal
 - [x] Light Signal
@@ -125,9 +148,11 @@ If you'd like to see an additional Part added, please feel free to open a [pull 
 
 #### *Four ways for turning on a Light Bulb, using the same parts, with increasing realism*
 
-Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. AyCraft simulations are well suited for varying degrees of realism depending on your requirements.
+Striking a balance between realism and dynamic gameplay is essential to crafting a simulation that suits your needs. Depending on your requirements, you can configure AyCraft simulations to varying degrees of realism.
 
 Consider a `Light Switch` contraption. In the following four examples, we demonstrate ascending levels of simulated realism.
+
+<a name="light"></a>
 
 ### Most Basic
 
@@ -248,35 +273,29 @@ button.press();
 
 ```
 
-
  [] - Has spatial position
  [] - wires used
  [] - power source used
 
-## Choose your own realisgm style simulations
+## Choose your own realism style simulations
 
-blah blah , remove? better summary?
-As you can see, this opt-in realism design allows for ideal development of contraptions for gaming.
+As you can see, AyCraft's opt-in realism design allows for wide range of simulations.
 
-## Immediate Mode and Tick Mode
-
-Immediate Mode Behavior: In immediate mode, actions and their effects are processed instantly. For example, pressing a button would immediately trigger any connected LED lights without the need to call .tick().
-
-Tick-based Mode Behavior: In tick-based mode, the system requires the .tick() method to be called to advance the state, allowing for time-dependent behaviors.
+<a name="terms"></a>
 
 # Termonologies
 
 ## Parts
 
-A `Part` is a piece of a contrapation such as 'Button', 'LED Light', 'Wire', or 'Power Supply'. Parts are independant units which may be connected to other parts. Parts receive and send `Signals`. Parts will emit events relevant to their specifc functionality which you can optionally listen for.
+A `Part` is a piece of a `Contraption` such as 'Button', 'LED Light', 'Wire', or 'Power Supply'. Parts are independent units that may be connected to other parts. Parts receive and send `Signals`. Parts will emit events relevant to their specific functionality, which you can optionally listen for.
 
 ## Contraptions
 
-A `Contraption` is a collection of parts which have been connected together in order to process `Signal`. For example, a "Light Switch" contraption could consist of a `Button`, `Wire`, and `LED Light`.
+A `Contraption` is a collection of parts that have been connected in order to process a `Signal.` For example, a `Light Switch` contraption could contain a `Button`, `Wire`, and `LED Light`.
 
 ## Signals
 
-Signals are blah blah blah
+`Signals` are used to communicate information between `Parts`.
 
 ### Electrical Signal
 
@@ -302,6 +321,14 @@ wavelength = 550,   // Wavelength in nanometers (visible light spectrum)
 direction = 0       // Direction of light in degrees
 ```
 
+
+<a name="contributing"></a>
+
+## Contributing
+
+If you have any issues using AyCraft.js or wish to improve the AyCraft.js please feel free to [Open An Issue](https://github.com/yantra-core/AyCraft.js/issues) or [Open A Pull Request](https://github.com/yantra-core/AyCraft.js/pulls). AyCraft.js intends to support hundreds, if not thousands of parts. Let's do this!
+
+[Discord](https://discord.gg/QgNAZhG9nF) Link
 
 ## Test
 
