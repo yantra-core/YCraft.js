@@ -1,6 +1,6 @@
 {
   "name": "aycraft",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A JavaScript library for building and simulating interactive contraptions within a physics-based environment.",
   "main": "index.js",
   "type": "module",
