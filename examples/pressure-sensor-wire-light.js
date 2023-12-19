@@ -1,8 +1,8 @@
-import { AyCraft, PressureSensor, LEDLight, Wire } from '../index.js';
+import { YCraft, PressureSensor, LEDLight, Wire } from '../index.js';
 
 function pressureSensorWireLight () {
 
-  let contraption = new AyCraft();
+  let contraption = new YCraft();
   let pressureSensor = new PressureSensor(0, -300, 0);
   let wire = new Wire();
   let ledLight = new LEDLight(300, -300, 0);
@@ -11,7 +11,7 @@ function pressureSensorWireLight () {
   pressureSensor.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to AyCraft system
+  // Add parts to YCraft system
   contraption.addPart(pressureSensor);
   contraption.addPart(wire);
   contraption.addPart(ledLight);

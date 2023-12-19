@@ -1,10 +1,10 @@
 import tap from 'tape';
-import { AyCraft, Button, LEDLight } from '../../index.js';
+import { YCraft, Button, LEDLight } from '../../index.js';
 
 tap.test('Doorbell System', (t) => {
-    // Create the AyCraft instances for each contraption
-    let doorbellButtonContraption = new AyCraft();
-    let bellContraption = new AyCraft();
+    // Create the YCraft instances for each contraption
+    let doorbellButtonContraption = new YCraft();
+    let bellContraption = new YCraft();
 
     // Create the components
     let doorbellButton = new Button();

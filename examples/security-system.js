@@ -1,10 +1,10 @@
-import { AyCraft, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Relay } from '../index.js';
+import { YCraft, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Relay } from '../index.js';
 
 
 function securitySystem() {
 
 
-  let contraption = new AyCraft();
+  let contraption = new YCraft();
 
   // Initialize and position components
   const motionDetector = new MotionDetector(-150, -250, 0);
@@ -32,7 +32,7 @@ function securitySystem() {
   actuator.connect(wireToLight);
   wireToLight.connect(securityLight);
 
-  // Add components and wires to AyCraft system
+  // Add components and wires to YCraft system
   contraption.addPart(motionDetector);
   contraption.addPart(pressureSensor);
   contraption.addPart(securityLight);

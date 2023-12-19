@@ -1,13 +1,13 @@
 // This file demonstrates how to connect multiple contraptions together to form a larger contraption
 // In most cases you will want to use a single contraption with multiple parts, but there are cases where you may want to use multiple contraptions
-import { AyCraft, Button, LEDLight, Wire } from '../index.js';
+import { YCraft, Button, LEDLight, Wire } from '../index.js';
 
 // TODO: fix this
 function connectedContraptions() {
 
-  // Create the AyCraft instances for each contraption
-  let doorbellButtonContraption = new AyCraft(); // Represents the outside doorbell button
-  let bellContraption = new AyCraft(); // Represents the inside bell
+  // Create the YCraft instances for each contraption
+  let doorbellButtonContraption = new YCraft(); // Represents the outside doorbell button
+  let bellContraption = new YCraft(); // Represents the inside bell
 
   doorbellButtonContraption.onAny((event, data) => {
     console.log('Door Bell ' + event, data);

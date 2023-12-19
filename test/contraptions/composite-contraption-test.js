@@ -1,13 +1,13 @@
 import tap from 'tape';
-import { AyCraft, Button, LEDLight } from '../../index.js';
+import { YCraft, Button, LEDLight } from '../../index.js';
 
 import buttonLight from '../../examples/button-light.js';
 import buttonRelayLight from '../../examples/button-relay-light.js';
 import buttonWireLight from '../../examples/button-wire-light.js';
 
-tap.test('Composite Contraptions in AyCraft', (t) => {
+tap.test('Composite Contraptions in YCraft', (t) => {
   t.test('Adding multiple contraptions to a big device', (t) => {
-    let bigDevice = new AyCraft(100, 100, 100);
+    let bigDevice = new YCraft(100, 100, 100);
 
     let a = buttonLight(300, 0, 0);
     let b = buttonRelayLight(600, 0, 0);

@@ -1,5 +1,5 @@
 import tap from 'tape';
-import AyCraft from '../../lib/AyCraft.js';
+import YCraft from '../../lib/YCraft.js';
 import MotionDetector from '../../lib/parts/MotionDetector.js';
 import Amplifier from '../../lib/parts/Amplifier.js';
 import Wire from '../../lib/parts/Wire.js';
@@ -9,7 +9,7 @@ import Button from '../../lib/parts/Button.js';
 import Relay from '../../lib/parts/Relay.js';
 
 tap.test('Smart Security System Integration Test', (t) => {
-    const ayCraftSystem = new AyCraft();
+    const yCraftSystem = new YCraft();
 
     // Set up components
     const motionDetector = new MotionDetector();
@@ -28,14 +28,14 @@ tap.test('Smart Security System Integration Test', (t) => {
     pressureSensor.connect(securityLight);
     manualOverrideButton.connect(securityLight);
 
-    // Add parts to AyCraft system
-    ayCraftSystem.addPart(motionDetector);
-    ayCraftSystem.addPart(signalAmplifier);
-    ayCraftSystem.addPart(wire);
-    ayCraftSystem.addPart(pressureSensor);
-    ayCraftSystem.addPart(securityLight);
-    ayCraftSystem.addPart(manualOverrideButton);
-    ayCraftSystem.addPart(signalRelay);
+    // Add parts to YCraft system
+    yCraftSystem.addPart(motionDetector);
+    yCraftSystem.addPart(signalAmplifier);
+    yCraftSystem.addPart(wire);
+    yCraftSystem.addPart(pressureSensor);
+    yCraftSystem.addPart(securityLight);
+    yCraftSystem.addPart(manualOverrideButton);
+    yCraftSystem.addPart(signalRelay);
 
     // Simulate events
     t.test('Motion Detected Scenario', (subTest) => {

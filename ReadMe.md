@@ -1,13 +1,13 @@
-# AyCraft.js
+# YCraft.js
 
 ## A library for building and simulating interactive contraptions
 
 <p align="center">
-  <img src="path-to-your-logo-or-image.png" alt="AyCraft.js Logo" width="200"/>
+  <img src="path-to-your-logo-or-image.png" alt="YCraft.js Logo" width="200"/>
 </p>
 
 <h4 align="center">
-  <a href="https://yantra.gg/aycraft">Live Demos</a> •
+  <a href="https://yantra.gg/ycraft">Live Demos</a> •
   <a href="#install">Installation</a> •
   <a href="#light">Usage</a> •
   <a href="#terms">Termonologies</a> •
@@ -17,11 +17,11 @@
 
 ## Build `Contrapations` with `Parts`
 
-AyCraft.js is a versatile JavaScript library for building, simulating, and managing `Contraptions`. AyCraft handles all aspects of your simulation while emitting events other outside systems can interact with.
+YCraft.js is a versatile JavaScript library for building, simulating, and managing `Contraptions`. YCraft handles all aspects of your simulation while emitting events other outside systems can interact with.
 
-A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. AyCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
+A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
 
-# AyCraft.js Key Design Prinicpals
+# YCraft.js Key Design Prinicpals
 
 - Rapid Prototyping of simulated contraptions
 - Opt-in Realism - Tailor the level of realism to fit your project's needs
@@ -29,17 +29,17 @@ A growing list of [Parts](#parts) are available, and we aim to support all commo
 - Event-driven architecture allowing for seamless integration with external systems
 - Headless Simulations
 
-## Contraption Rendering
+## Viewing Contraptions
 
 TODO `SCREENSHOTS` 
 
 Here you can find a live demo of rendering contraptions with Mantra.js.
  
- - [yantra link](https://yantra.gg/aycraft)
+ - [yantra link](https://yantra.gg/ycraft)
  - CodePen Link: [CodePen](https://codepen.io/)
 
 
-AyCraft.js itself has no knowledge of graphics. Contraptions can be rendered however you wish.
+YCraft.js itself has no knowledge of graphics. Contraptions can be rendered however you wish.
 
 Including [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
 
@@ -52,7 +52,7 @@ repository: see: `./examples/browser/index.html`
 ### From CDN
 
 ```html
-<script src="https://yantra.gg/aycraft.js"></script>
+<script src="https://yantra.gg/ycraft.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
     let contraption = new AY.craft();
@@ -64,7 +64,7 @@ repository: see: `./examples/browser/index.html`
     button.connect(wire);
     wire.connect(ledLight);
 
-    // Add parts to AyCraft system
+    // Add parts to YCraft system
     contraption.addPart(button);
     contraption.addPart(wire);
     contraption.addPart(ledLight);
@@ -84,7 +84,7 @@ repository: see: `./examples/browser/index.html`
 ### From NPM
 
 ```bash
-npm install aycraft
+npm install ycraft
 ```
 
 See: `./examples/` folder for node.js example code.
@@ -92,9 +92,9 @@ See: `./examples/` folder for node.js example code.
 <a name="parts"></a>
 ## `Part` List
 
-If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/AyCraft.js/pulls).
+If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/YCraft.js/pulls).
 
-see: [./lib/parts](https://github.com/yantra-core/AyCraft.js/tree/master/lib/parts)
+see: [./lib/parts](https://github.com/yantra-core/YCraft.js/tree/master/lib/parts)
 
 - [x] Wire
 - [x] Power Supply
@@ -125,7 +125,7 @@ see: [./lib/parts](https://github.com/yantra-core/AyCraft.js/tree/master/lib/par
 
 ## Logic Parts
 
-see: [./lib/parts/logic](https://github.com/yantra-core/AyCraft.js/tree/master/lib/parts/logic)
+see: [./lib/parts/logic](https://github.com/yantra-core/YCraft.js/tree/master/lib/parts/logic)
 
 - [ ] And Gate
 - [ ] Nor Gate
@@ -139,16 +139,16 @@ see: [./lib/parts/logic](https://github.com/yantra-core/AyCraft.js/tree/master/l
 
 ## Signals
 
-see: [./lib/signals](https://github.com/yantra-core/AyCraft.js/tree/master/lib/signals)
+see: [./lib/signals](https://github.com/yantra-core/YCraft.js/tree/master/lib/signals)
 
 - [x] Electrical Signal
 - [x] Light Signal
 
-## Realism vs dynamic gameplay simulation
+## Realism vs dynamic simulation
 
 #### *Four ways for turning on a Light Bulb, using the same parts, with increasing realism*
 
-Striking a balance between realism and dynamic gameplay is essential to crafting a simulation that suits your needs. Depending on your requirements, you can configure AyCraft simulations to varying degrees of realism.
+Striking a balance between realism and dynamic simulation is essential to crafting a simulation that suits your needs. Depending on your requirements, you can configure YCraft simulations to varying degrees of realism.
 
 Consider a `Light Switch` contraption. In the following four examples, we demonstrate ascending levels of simulated realism.
 
@@ -159,16 +159,16 @@ Consider a `Light Switch` contraption. In the following four examples, we demons
 In this basic example, we create a light switch without any wires or power source, and all parts will default to position `(0, 0, 0)`.
 
 ```javascript
-import { AyCraft, Button, LEDLight } from 'aycraft';
+import { YCraft, Button, LEDLight } from 'ycraft';
 
-let contraption = new AyCraft();
+let contraption = new YCraft();
 let button = new Button();
 let ledLight = new LEDLight();
 
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add parts to AyCraft system
+// Add parts to YCraft system
 contraption.addPart(button);
 contraption.addPart(ledLight);
 
@@ -188,16 +188,16 @@ In this example we create the same contraption, however we apply spatial positio
 
 
 ```js
-import { AyCraft, Button, LEDLight } from 'aycraft';
+import { YCraft, Button, LEDLight } from 'ycraft';
 
-let contraption = new AyCraft();
+let contraption = new YCraft();
 let button = new Button(0, 0, 0);
 let ledLight = new LEDLight(100, 50, 0);
 
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add parts to AyCraft system
+// Add parts to YCraft system
 contraption.addPart(button);
 contraption.addPart(ledLight);
 
@@ -217,9 +217,9 @@ Instead of directly connecting the parts together, we can uses `Wires` to connec
 
 
 ```js
-import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
+import { YCraft, Button, LEDLight, Wire } from 'ycraft';
 
-let contraption = new AyCraft();
+let contraption = new YCraft();
 let button = new Button(0, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight(100, 50, 0);
@@ -228,7 +228,7 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add parts to AyCraft system
+// Add parts to YCraft system
 contraption.addPart(button);
 contraption.addPart(wire);
 contraption.addPart(ledLight);
@@ -249,9 +249,9 @@ All our previous examples assumed infinite free power was available. By changing
 
 
 ```js
-import { AyCraft, Button, LEDLight, Wire, PowerSupply } from 'aycraft';
+import { YCraft, Button, LEDLight, Wire, PowerSupply } from 'ycraft';
 
-let contraption = new AyCraft({ powerRequired: true });
+let contraption = new YCraft({ powerRequired: true });
 let button = new Button(0, 0, 0);
 let wire = new Wire(); // TODO: wire settings
 let ledLight = new LEDLight(100, 50, 0); // TOOD: power watter
@@ -262,7 +262,7 @@ powerSupply.connect(wire);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add parts to AyCraft system
+// Add parts to YCraft system
 contraption.addPart(powerSupply);
 contraption.addPart(button);
 contraption.addPart(wire);
@@ -279,7 +279,7 @@ button.press();
 
 ## Choose your own realism style simulations
 
-As you can see, AyCraft's opt-in realism design allows for wide range of simulations.
+As you can see, YCraft's opt-in realism design allows for wide range of simulations.
 
 <a name="terms"></a>
 
@@ -326,7 +326,7 @@ direction = 0       // Direction of light in degrees
 
 ## Contributing
 
-If you have any issues using AyCraft.js or wish to improve the AyCraft.js please feel free to [Open An Issue](https://github.com/yantra-core/AyCraft.js/issues) or [Open A Pull Request](https://github.com/yantra-core/AyCraft.js/pulls). AyCraft.js intends to support hundreds, if not thousands of parts. Let's do this!
+If you have any issues using YCraft.js or wish to improve the YCraft.js please feel free to [Open An Issue](https://github.com/yantra-core/YCraft.js/issues) or [Open A Pull Request](https://github.com/yantra-core/YCraft.js/pulls). YCraft.js intends to support hundreds, if not thousands of parts. Let's do this!
 
 [Discord](https://discord.gg/QgNAZhG9nF) Link
 
@@ -339,12 +339,3 @@ npm run test
 ## License
 Yantra Works 2023
 AGPL 
-
-
-# Setting Contraption Root Part
-
-This will pair `Part.onFn` and `Part.offFn` to `Contraption.start()` and `Contrapation.stop()`.
-
-This allows you to specify any part as an optional "entry point" to the contraption.
-
-The first part added to the contaption will *always* be the root part / entry part. It's that simple.

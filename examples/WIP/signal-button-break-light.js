@@ -1,8 +1,8 @@
-import { AyCraft, Button, LEDLight, Wire, ElectricalSignal } from '../../index.js';
+import { YCraft, Button, LEDLight, Wire, ElectricalSignal } from '../../index.js';
 
 function signalButtonBreakLight () {
 
-  let contraption = new AyCraft({
+  let contraption = new YCraft({
     powerRequired: false // default is false, set to true to enforce power requirements
   });
   
@@ -14,7 +14,7 @@ function signalButtonBreakLight () {
   button.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to AyCraft system
+  // Add parts to YCraft system
   contraption.addPart(button);
   contraption.addPart(wire);
   contraption.addPart(ledLight);

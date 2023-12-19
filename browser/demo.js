@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async (event) => {
 
-  //return ayCraftSystem;
+  //return yCraftSystem;
 
   let game = new MANTRA.Game({
     physics: 'matter', // enum, 'physx', 'matter
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       follow: true
     }
   });
-  game.use('AyCraft');
+  game.use('YCraft');
 
   game.start(function(){
     game.use('Editor');

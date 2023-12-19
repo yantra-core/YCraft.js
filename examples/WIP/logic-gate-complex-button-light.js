@@ -1,6 +1,6 @@
-import { AyCraft, Button, LEDLight, Wire, AndGate, OrGate, NotGate } from '../../index.js';
+import { YCraft, Button, LEDLight, Wire, AndGate, OrGate, NotGate } from '../../index.js';
 
-let demoSystem = new AyCraft({
+let demoSystem = new YCraft({
   powerRequired: false
 });
 
@@ -36,7 +36,7 @@ wire4.connect(orGate);
 // Connect OR gate to LED light
 orGate.connect(ledLight);
 
-// Add parts to AyCraft system
+// Add parts to YCraft system
 demoSystem.addPart(button);
 demoSystem.addPart(ledLight);
 demoSystem.addPart(andGate);

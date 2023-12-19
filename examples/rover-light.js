@@ -1,8 +1,8 @@
-import { AyCraft, Latch, LEDLight, Wire, Rover } from '../index.js';
+import { YCraft, Latch, LEDLight, Wire, Rover } from '../index.js';
 
 function roverLight(x, y, z) {
 
-  let contraption = new AyCraft(x, y, z, {
+  let contraption = new YCraft(x, y, z, {
     powerRequired: false
   });
 
@@ -39,7 +39,7 @@ function roverLight(x, y, z) {
   //wire2.connect(ledLight2);
   wire2.connect(ledLight3);
 
-  // Add parts to AyCraft system
+  // Add parts to YCraft system
   contraption.addPart(latch);
   contraption.addPart(latch2);
   contraption.addPart(wire1);

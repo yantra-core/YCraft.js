@@ -1,9 +1,9 @@
-import { AyCraft, Button, LEDLight, Latch } from '../../index.js';
+import { YCraft, Button, LEDLight, Latch } from '../../index.js';
 import tap from 'tap';
 
-tap.test('AyCraft Coordinate System Tests', (t) => {
+tap.test('YCraft Coordinate System Tests', (t) => {
   t.test('lightButton contraption coordinates', (t) => {
-    let lightButton = new AyCraft(0, 0, 0);
+    let lightButton = new YCraft(0, 0, 0);
     let button = new Button(0, -150, 0, { latching: true });
     let ledLight = new LEDLight(150, -150, 0);
 
@@ -11,7 +11,7 @@ tap.test('AyCraft Coordinate System Tests', (t) => {
     lightButton.addPart(button);
     lightButton.addPart(ledLight);
 
-    // Set AyCraft position
+    // Set YCraft position
     lightButton.setPosition(100, 100, 0);
 
     t.equal(button.position.x, 100, 'Button x position should be adjusted to 100');
@@ -22,7 +22,7 @@ tap.test('AyCraft Coordinate System Tests', (t) => {
   });
 
   t.test('lightLatch contraption coordinates', (t) => {
-    let lightLatch = new AyCraft();
+    let lightLatch = new YCraft();
     let latch = new Latch(0, -150, 0);
     let ledLight = new LEDLight(150, -150, 0);
 
@@ -30,7 +30,7 @@ tap.test('AyCraft Coordinate System Tests', (t) => {
     lightLatch.addPart(latch);
     lightLatch.addPart(ledLight);
 
-    // Set AyCraft position
+    // Set YCraft position
     lightLatch.setPosition(-50, 50, 0);
 
     t.equal(latch.position.x, -50, 'Latch x position should be adjusted to -50');

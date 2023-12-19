@@ -1,7 +1,7 @@
-import { AyCraft, Button, LEDLight, Wire } from '../index.js';
+import { YCraft, Button, LEDLight, Wire } from '../index.js';
 
 function buttonWireLight (x = 0, y = 0, z = 0) {
-  let contraption = new AyCraft(x, y, z, {
+  let contraption = new YCraft(x, y, z, {
     powerRequired: false // default is false, set to true to enforce power requirements
   });
   let button = new Button(0, -150, 0);
@@ -12,7 +12,7 @@ function buttonWireLight (x = 0, y = 0, z = 0) {
   button.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to AyCraft system
+  // Add parts to YCraft system
   contraption.addPart(button);
   contraption.addPart(wire);
   contraption.addPart(ledLight);

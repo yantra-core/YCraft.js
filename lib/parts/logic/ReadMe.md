@@ -1,4 +1,4 @@
-# AyCraft Logic Gates
+# YCraft Logic Gates
 
 The logical gate system is mostly complete for version 1 in this folder.
 

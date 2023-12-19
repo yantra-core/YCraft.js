@@ -1,8 +1,8 @@
-import { AyCraft, Button, LEDLight, Wire, Relay } from '../index.js';
+import { YCraft, Button, LEDLight, Wire, Relay } from '../index.js';
 
 function buttonRelayLight (x = 0, y = 0, z = 0) {
 
-  let contraption = new AyCraft(x, y, z);
+  let contraption = new YCraft(x, y, z);
   let button = new Button(0, -150, 0);
   let relay = new Relay(300, -150, 0); // Adding the Relay
   let wire = new Wire();
@@ -15,7 +15,7 @@ function buttonRelayLight (x = 0, y = 0, z = 0) {
   relay.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to AyCraft system
+  // Add parts to YCraft system
   contraption.addPart(button);
   contraption.addPart(relay);
   contraption.addPart(wire);

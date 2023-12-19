@@ -1,6 +1,6 @@
-import { AyCraft, Button, LEDLight, Wire, AndGate } from '../index.js';
+import { YCraft, Button, LEDLight, Wire, AndGate } from '../index.js';
 
-let logicCircuit = new AyCraft({
+let logicCircuit = new YCraft({
   powerRequired: false
 });
 
@@ -29,7 +29,7 @@ wire2.connect(andGate);
 andGate.connect(wire3);
 wire3.connect(ledLight);
 
-// Add parts to the AyCraft system
+// Add parts to the YCraft system
 logicCircuit.addPart(button1);
 logicCircuit.addPart(button2);
 logicCircuit.addPart(ledLight);

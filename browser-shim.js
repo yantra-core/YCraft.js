@@ -1,4 +1,4 @@
-import AyCraft from './lib/AyCraft.js';
+import YCraft from './lib/YCraft.js';
 
 import ElectricalSignal from './lib/signals/ElectricalSignal.js';
 import Actuator from './lib/parts/Actuator.js';
@@ -17,12 +17,12 @@ import Wire from './lib/parts/Wire.js';
 import allExamples from './examples/WIP/all-examples-composite.js';
 
 function createContraption () {
-  return new AyCraft();
+  return new YCraft();
 }
 
 export {
   createContraption,
-  AyCraft,
+  YCraft,
   ElectricalSignal,
   Actuator,
   Amplifier,
