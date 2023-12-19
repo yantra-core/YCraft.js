@@ -14,7 +14,7 @@ import Relay from './lib/parts/Relay.js';
 import Rover from './lib/parts/Rover.js';
 import Wire from './lib/parts/Wire.js';
 
-import allExamples from './examples/all-examples-composite.js';
+import allExamples from './examples/WIP/all-examples-composite.js';
 
 function createContraption () {
   return new RealStone();

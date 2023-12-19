@@ -1,8 +1,9 @@
-# RealStone.js - A library for building and simulating interactive contraptions within a physics-based environment.
+# AyCraft.js - A library for building and simulating interactive contraptions within a physics-based environment.
+## TODO: rename addPart to add()
 
 ## Build contrapations with parts.
 
-Think of the Minecraft Redstone system using real-world parts. RealStone.js is a simulation-focused library great for building games or educational tools. RealStone handles all aspects of your simulation while emitting events other outside systems can interact with. 
+Think of the Minecraft Redstone system using real-world parts. AyCraft.js is a simulation-focused library great for building games or educational tools. AyCraft handles all aspects of your simulation while emitting events other outside systems can interact with. 
 
 # Design Prinicpals
 
@@ -16,18 +17,18 @@ Think of the Minecraft Redstone system using real-world parts. RealStone.js is a
 ## A low complexity Light Switch Contraption
 
 ```js
-import { RealStone, Button, LEDLight, Wire } from 'realstone';
+import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
 
-let lightSwitch = new RealStone();
-let button = new Button(0, 0, 0);
+let lightSwitch = new AyCraft();
+let button = new Button();
 let wire = new Wire();
-let ledLight = new LEDLight(100, 50, 0);
+let ledLight = new LEDLight();
 
 // Connect button to wire, and wire to LED light
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);
@@ -39,14 +40,14 @@ button.press();
 
 ## Super Easy Rendering
 
-TODO blah `SCREENSHOTs` 
+TODO blah `SCREENSHOTS` 
 
-RealStone is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
+AyCraft is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
 
 ## Part list
 
 
-| RealStone Part       | Minecraft Equivalent      |
+| AyCraft Part       | Minecraft Equivalent      |
 |----------------------|---------------------------|
 | Wire                 | Redstone Dust             |
 | Transistor           | Redstone Torch            |
@@ -61,15 +62,15 @@ RealStone is available as a Plugin for the [Mantra](https://github.com/yantra-co
 
 
 
-More Parts are coming. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/RealStone.js/pulls).
+More Parts are coming. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/AyCraft.js/pulls).
 
-## Realism vs dynamic gameplay
+## Realism vs dynamic gameplay simulation
 
-### Four methods for turning on a Light Bulb, using the same parts, with increasing realism
+### *Four ways for turning on a Light Bulb, using the same parts, with increasing realism*
 
 #### Blah blah
 
-Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. RealStone simulations are well suited for varying degrees of realism depending on your requirements.
+Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. AyCraft simulations are well suited for varying degrees of realism depending on your requirements.
 
 Consider a `Light Switch` contraption. In the following four examples, we demonstrate ascending levels of simulated realism.
 
@@ -78,16 +79,16 @@ Consider a `Light Switch` contraption. In the following four examples, we demons
 In this basic example, we create a light switch without any wires or power source, and all parts will default to position `(0, 0, 0)`.
 
 ```javascript
-import { RealStone, Button, LEDLight } from 'realstone';
+import { AyCraft, Button, LEDLight } from 'aycraft';
 
-let lightSwitch = new RealStone();
+let lightSwitch = new AyCraft();
 let button = new Button();
 let ledLight = new LEDLight();
 
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 lightSwitch.addPart(button);
 lightSwitch.addPart(ledLight);
 
@@ -107,16 +108,16 @@ In this example we create the same contraption, however we apply spatial positio
 
 
 ```js
-import { RealStone, Button, LEDLight } from 'realstone';
+import { AyCraft, Button, LEDLight } from 'aycraft';
 
-let lightSwitch = new RealStone();
+let lightSwitch = new AyCraft();
 let button = new Button(0, 0, 0);
 let ledLight = new LEDLight(100, 50, 0);
 
 // Connect button directly to LED light
 button.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 lightSwitch.addPart(button);
 lightSwitch.addPart(ledLight);
 
@@ -132,13 +133,13 @@ button.press();
 
 ### With Wire
 
-Instead of directly connecting the parts together, we can uses `Wires` to connect parts. A wire has `inputs`, `outputs`, carries `Signal`, and may optionally have eletrical resistance or binary data encoding applied to the `Signal` as it pases through.
+Instead of directly connecting the parts together, we can uses `Wires` to connect parts. A wire has `inputs`, `outputs`, carries `Signal`, has a dynamic length based on it's connections, and may optionally have eletrical resistance or binary data encoding applied to the `Signal` as it pases through.
 
 
 ```js
-import { RealStone, Button, LEDLight, Wire } from 'realstone';
+import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
 
-let lightSwitch = new RealStone();
+let lightSwitch = new AyCraft();
 let button = new Button(0, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight(100, 50, 0);
@@ -147,7 +148,7 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
 lightSwitch.addPart(ledLight);
@@ -168,9 +169,9 @@ All our previous examples assumed infinite free power was available. By changing
 
 
 ```js
-import { RealStone, Button, LEDLight, Wire, PowerSupply } from 'realstone';
+import { AyCraft, Button, LEDLight, Wire, PowerSupply } from 'aycraft';
 
-let lightSwitch = new RealStone({ powerRequired: true });
+let lightSwitch = new AyCraft({ powerRequired: true });
 let button = new Button(0, 0, 0);
 let wire = new Wire(); // TODO: wire settings
 let ledLight = new LEDLight(100, 50, 0); // TOOD: power watter
@@ -181,7 +182,7 @@ powerSupply.connect(wire);
 button.connect(wire);
 wire.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 lightSwitch.addPart(powerSupply);
 lightSwitch.addPart(button);
 lightSwitch.addPart(wire);
@@ -201,6 +202,12 @@ button.press();
 
 blah blah , remove? better summary?
 As you can see, this opt-in realism design allows for ideal development of contraptions for gaming.
+
+## Immediate Mode and Tick Mode
+
+Immediate Mode Behavior: In immediate mode, actions and their effects are processed instantly. For example, pressing a button would immediately trigger any connected LED lights without the need to call .tick().
+
+Tick-based Mode Behavior: In tick-based mode, the system requires the .tick() method to be called to advance the state, allowing for time-dependent behaviors.
 
 # Termonologies
 
@@ -250,3 +257,12 @@ npm run test
 ## License
 Yantra Works 2023
 AGPL 
+
+
+# Setting Contraption Root Part
+
+This will pair `Part.onFn` and `Part.offFn` to `Contraption.start()` and `Contrapation.stop()`.
+
+This allows you to specify any part as an optional "entry point" to the contraption.
+
+The first part added to the contaption will *always* be the root part / entry part. It's that simple.

@@ -1,17 +1,17 @@
 {
-  "name": "realstone",
+  "name": "aycraft",
   "version": "1.0.0",
   "description": "A JavaScript library for building and simulating interactive contraptions within a physics-based environment.",
   "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yantra-core/realstone.git"
+    "url": "git+https://github.com/yantra-core/aycraft.git"
   },
   "bugs": {
-    "url": "https://github.com/yantra-core/realstone/issues"
+    "url": "https://github.com/yantra-core/aycraft/issues"
   },
-  "homepage": "https://github.com//yantra-core/realstone#readme",
+  "homepage": "https://github.com//yantra-core/aycraft#readme",
   "directories": {
     "lib": "lib",
     "test": "test"

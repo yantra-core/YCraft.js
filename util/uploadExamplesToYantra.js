@@ -95,10 +95,15 @@ async function uploadContraptions() {
 
       // Add the processed content to the composite content
       compositeContent += processedContent + '\n\n';
+
     }
 
     // Upload the composite demo
-    await uploadDemo('CompositeContraption', compositeContent);
+    // TODO: enabled CompositeContraption upload
+    // await uploadDemo('CompositeContraption', compositeContent);
+
+  
+
   } catch (error) {
     console.error('Error uploading contraptions:', error);
   }
@@ -119,8 +124,12 @@ function processContent(content) {
   // this is done to remove the part.press() / part.trigger() / etc. lines in the demo code
   content = content.split('\n').slice(0, -2).join('\n');
 
+  let moduleName = 'DemoContraption';
 
-  return content;
+   // Wrap the content in a module pattern and export under a unique namespace
+   // return `const ${moduleName} = (function() { ${content} return { default: default }; })(); export { ${moduleName} };`;
+
+   return content;
 }
 
 async function uploadDemo(name, content) {
@@ -131,7 +140,7 @@ async function uploadDemo(name, content) {
   };
 
   console.log(`${etherspaceEndpoint}/${name}`);
-  console.log(payload);
+  //console.log(payload);
 
   let upload = true;
   if (upload) {

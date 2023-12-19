@@ -2,7 +2,7 @@
 browserify ./browser-shim.js --standalone RS -o ./dist/realstone.js -t babelify
 
 # Copy the realstone.js file to ./examples/browser
-# cp ./dist/realstone.js ./examples/browser/realstone.js
+cp ./dist/realstone.js ./browser/realstone.js
 
 # Copy the realstone.js file to ../mantra/mantra-client/public
 cp ./dist/realstone.js ../mantra/mantra-client/public/realstone.js
