@@ -28,4 +28,4 @@ function buttonActuatorLight () {
 export default buttonActuatorLight;
 
 // Simulate pressing the button
-buttonActuatorLight().start();
+// buttonActuatorLight().start();

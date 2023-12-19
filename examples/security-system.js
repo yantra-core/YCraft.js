@@ -55,4 +55,4 @@ export default securitySystem;
 
 // manualOverrideButton.press(); // Simulate manual override
 // Simulate motion detection
-securitySystem().detectMotion(); // may not work ( for now fix )
+// securitySystem().start(); // may not work ( for now fix )

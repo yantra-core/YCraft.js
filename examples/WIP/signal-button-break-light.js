@@ -1,5 +1,4 @@
-import { RealStone, Button, LEDLight, Wire, ElectricalSignal } from '../index.js';
-
+import { RealStone, Button, LEDLight, Wire, ElectricalSignal } from '../../index.js';
 
 function signalButtonBreakLight () {
 
@@ -26,6 +25,7 @@ function signalButtonBreakLight () {
     current: 300
   });
   
+  button.press(signal);
   
   contraption.onAny((event, data) => {
     console.log(event, data);
@@ -39,4 +39,4 @@ function signalButtonBreakLight () {
 export default signalButtonBreakLight;
 
 // Simulate pressing the button, with custom signal
-signalButtonBreakLight().press(signal);
+// button.press(signal);
