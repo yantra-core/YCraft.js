@@ -1,5 +1,6 @@
-# AyCraft.js - A library for building and simulating interactive contraptions within a physics-based environment.
-## TODO: rename addPart to add()
+# AyCraft
+
+## A library for building and simulating interactive contraptions within a physics-based environment.
 
 ## Build contrapations with parts.
 
