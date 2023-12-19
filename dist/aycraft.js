@@ -426,7 +426,7 @@ var AyCraft = /*#__PURE__*/function (_EventEmitter) {
     key: "connect",
     value: function connect(targetComponent) {
       // Check if the target component belongs to another AyCraft instance
-      if (targetComponent instanceof AyCraftComponent && this.realStone !== targetComponent.realStone) {
+      if (targetComponent instanceof AyCraftComponent && this.ayCraft !== targetComponent.ayCraft) {
         // Implement logic to handle inter-contraption connections
         // This could involve using a global event emitter or a direct reference
       } else {
@@ -581,8 +581,8 @@ var Part = exports.Part = /*#__PURE__*/function (_EventEmitter) {
   }
   _createClass(Part, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
 
     // Additional methods or properties common to all parts can be added here
@@ -769,8 +769,8 @@ var Amplifier = exports["default"] = /*#__PURE__*/function (_Part) {
   }
   _createClass(Amplifier, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
   }, {
     key: "connect",
@@ -896,8 +896,8 @@ var Button = exports["default"] = /*#__PURE__*/function (_Part) {
   }
   _createClass(Button, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
   }, {
     key: "connect",
@@ -1017,8 +1017,8 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
   }
   _createClass(LEDLight, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
   }, {
     key: "activate",
@@ -1065,7 +1065,7 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
         // console.log('Turning off LED light...');
         this.deactivate(signal);
       } else {
-        if (!this.realStone.powerRequired || power >= this.props.wattage) {
+        if (!this.ayCraft.powerRequired || power >= this.props.wattage) {
           // console.log('Turning on LED light...');
           this.activate(signal);
         } else {
@@ -1222,8 +1222,8 @@ var Latch = exports["default"] = /*#__PURE__*/function (_Part) {
   }
   _createClass(Latch, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
   }, {
     key: "connect",
@@ -1617,8 +1617,8 @@ var Relay = exports["default"] = /*#__PURE__*/function (_Part) {
   }
   _createClass(Relay, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
   }, {
     key: "connect",
@@ -1756,8 +1756,8 @@ var Rover = /*#__PURE__*/function (_Part) {
   // Method to set AyCraft reference
   _createClass(Rover, [{
     key: "setAyCraft",
-    value: function setAyCraft(realStone) {
-      this.realStone = realStone;
+    value: function setAyCraft(ayCraft) {
+      this.ayCraft = ayCraft;
     }
 
     // Method to activate or deactivate the Rover

@@ -1,26 +1,53 @@
-# AyCraft
+# AyCraft.js
 
-## A library for building and simulating interactive contraptions within a physics-based environment.
+## A library for building and simulating interactive contraptions
 
-## Build contrapations with parts.
+<p align="center">
+  <img src="path-to-your-logo-or-image.png" alt="AyCraft.js Logo" width="200"/>
+</p>
 
-Think of the Minecraft Redstone system using real-world parts. AyCraft.js is a simulation-focused library great for building games or educational tools. AyCraft handles all aspects of your simulation while emitting events other outside systems can interact with. 
+<h4 align="center">
+  <a href="#key">Key Principals</a> •
+  <a href="https://yantra.gg/aycraft">Live Demos</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#light">Light Switch Examples</a> •
+  <a href="#usage">Termonologies</a> •
+  <a href="#parts">Parts List</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#contributing">Contributing</a>
+</h4>
 
-# Design Prinicpals
+## Build `Contrapations` with `Parts`
 
- Rapid prototyping and design of simulated contraptions
+AyCraft.js is a versatile JavaScript library for building, simulating, and managing `Contraptions`. AyCraft handles all aspects of your simulation while emitting events other outside systems can interact with.
 
- - Quick and easy design and running of simulated contraptions
- - Opt-in Realism, You decide what level of realism your simulation uses
- - Granualar customizable conventions with reasonable defaults configurations
- - Headless simulations
+A growing list of `Parts` is available, and we aim to support all commonly known items. AyCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
+
+# AyCraft.js Key Design Prinicpals
+
+- Rapid Prototyping of simulated contraptions
+- Opt-in Realism - Tailor the level of realism to fit your project's needs
+- Granualar configurations with reasonable default conventions
+- Headless Simulations
+- Event-driven architecture allowing for seamless integration with external systems
+
+## Contraption Rendering
+
+TODO `SCREENSHOTS` 
+
+AyCraft.js itself has no knowledge of graphics. You can render contraptions in the browser using [mantra.js](https://github.com/yantra-core/mantra). Mantra.js is one-liner CDN include and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
+
+You can find a live demo of contraptions here: [yantra link](https://yantra.gg/aycraft)
+CodePen Link: [CodePen](https://codepen.io/)
+
+To run these same demos locally without having to install or depend on anything, open the html file found in this repository: see: `./examples/browser/index.html`
 
 ## A low complexity Light Switch Contraption
 
 ```js
 import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
 
-let lightSwitch = new AyCraft();
+let contraption = new AyCraft();
 let button = new Button();
 let wire = new Wire();
 let ledLight = new LEDLight();
@@ -30,46 +57,73 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add parts to AyCraft system
-lightSwitch.addPart(button);
-lightSwitch.addPart(wire);
-lightSwitch.addPart(ledLight);
+contraption.addPart(button);
+contraption.addPart(wire);
+contraption.addPart(ledLight);
+
+contraption.onAny((event, data) => {
+  console.log(event, data);
+});
 
 // Simulate pressing the button
 button.press();
 
 ```
 
-## Super Easy Rendering
+<a name="parts"></a>
+## `Part` List
 
-TODO blah `SCREENSHOTS` 
-
-AyCraft is available as a Plugin for the [Mantra](https://github.com/yantra-core/mantra) Game Developement Framework and can be rendered in 2d with CSS, Phaser 3 or 3D with Babylon.js
-
-## Part list
-
-
-| AyCraft Part       | Minecraft Equivalent      |
-|----------------------|---------------------------|
-| Wire                 | Redstone Dust             |
-| Transistor           | Redstone Torch            |
-| Power Supply         | Redstone Block            |
-| Relay             | Redstone Relay         |
-| Amplifier            | Redstone Comparator       |
-| Button               | Button                    |
-| Pressure Sensor      | Pressure Plate            |
-| Impact Sensor        | Target Block              |
-| Motion Detector      | Observer                  |
-| LED Light            | Redstone Lamp             |
+If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/AyCraft.js/pulls).
 
 
 
-More Parts are coming. If you'd like to see an additional Part added, please feel free to open a [pull request](https://github.com/yantra-core/AyCraft.js/pulls).
+- [x] Wire
+- [x] Transistor
+- [x] Power Supply
+- [x] Relay
+- [x] Amplifier
+- [x] Button
+- [x] Pressure Sensor
+- [x] Impact Sensor
+- [x] Motion Detector
+- [x] LED Light
+- [x] Actuator
+- [x] Conveyor Belt
+- [x] Latch
+- [x] Switch
+- [x] Dispenser
+- [x] Lever
+- [x] Mirror
+- [x] Tamper Sensor
+- [x] Capacitor
+- [x] Laser Sensor
+- [x] Photodetector
+- [x] Rotary Switch
+- [x] Clock
+- [x] Rover
+- [ ] Cart
+- [ ] Track
+
+## Logic Parts
+
+- [x] And Gate
+- [x] Memory Register
+- [x] Nor Gate
+- [x] Or Gate
+- [x] Xnor Gate
+- [x] Counter
+- [x] Nand Gate
+- [x] Not Gate
+- [x] Xor Gate
+
+## Signals
+
+- [x] Electrical Signal
+- [x] Light Signal
 
 ## Realism vs dynamic gameplay simulation
 
-### *Four ways for turning on a Light Bulb, using the same parts, with increasing realism*
-
-#### Blah blah
+#### *Four ways for turning on a Light Bulb, using the same parts, with increasing realism*
 
 Striking a balance between realism and dynamic gameplay often leads to situations where an exact simulation would not be appropiate. AyCraft simulations are well suited for varying degrees of realism depending on your requirements.
 
@@ -82,7 +136,7 @@ In this basic example, we create a light switch without any wires or power sourc
 ```javascript
 import { AyCraft, Button, LEDLight } from 'aycraft';
 
-let lightSwitch = new AyCraft();
+let contraption = new AyCraft();
 let button = new Button();
 let ledLight = new LEDLight();
 
@@ -90,8 +144,8 @@ let ledLight = new LEDLight();
 button.connect(ledLight);
 
 // Add parts to AyCraft system
-lightSwitch.addPart(button);
-lightSwitch.addPart(ledLight);
+contraption.addPart(button);
+contraption.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
@@ -111,7 +165,7 @@ In this example we create the same contraption, however we apply spatial positio
 ```js
 import { AyCraft, Button, LEDLight } from 'aycraft';
 
-let lightSwitch = new AyCraft();
+let contraption = new AyCraft();
 let button = new Button(0, 0, 0);
 let ledLight = new LEDLight(100, 50, 0);
 
@@ -119,8 +173,8 @@ let ledLight = new LEDLight(100, 50, 0);
 button.connect(ledLight);
 
 // Add parts to AyCraft system
-lightSwitch.addPart(button);
-lightSwitch.addPart(ledLight);
+contraption.addPart(button);
+contraption.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
@@ -140,7 +194,7 @@ Instead of directly connecting the parts together, we can uses `Wires` to connec
 ```js
 import { AyCraft, Button, LEDLight, Wire } from 'aycraft';
 
-let lightSwitch = new AyCraft();
+let contraption = new AyCraft();
 let button = new Button(0, 0, 0);
 let wire = new Wire();
 let ledLight = new LEDLight(100, 50, 0);
@@ -150,9 +204,9 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add parts to AyCraft system
-lightSwitch.addPart(button);
-lightSwitch.addPart(wire);
-lightSwitch.addPart(ledLight);
+contraption.addPart(button);
+contraption.addPart(wire);
+contraption.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
@@ -172,7 +226,7 @@ All our previous examples assumed infinite free power was available. By changing
 ```js
 import { AyCraft, Button, LEDLight, Wire, PowerSupply } from 'aycraft';
 
-let lightSwitch = new AyCraft({ powerRequired: true });
+let contraption = new AyCraft({ powerRequired: true });
 let button = new Button(0, 0, 0);
 let wire = new Wire(); // TODO: wire settings
 let ledLight = new LEDLight(100, 50, 0); // TOOD: power watter
@@ -184,10 +238,10 @@ button.connect(wire);
 wire.connect(ledLight);
 
 // Add parts to AyCraft system
-lightSwitch.addPart(powerSupply);
-lightSwitch.addPart(button);
-lightSwitch.addPart(wire);
-lightSwitch.addPart(ledLight);
+contraption.addPart(powerSupply);
+contraption.addPart(button);
+contraption.addPart(wire);
+contraption.addPart(ledLight);
 
 // Simulate pressing the button
 button.press();
