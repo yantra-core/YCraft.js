@@ -1,8 +1,8 @@
-import { RealStone, Latch, LEDLight, Wire, Rover } from '../index.js';
+import { AyCraft, Latch, LEDLight, Wire, Rover } from '../index.js';
 
 function roverLight(x, y, z) {
 
-  let contraption = new RealStone(x, y, z, {
+  let contraption = new AyCraft(x, y, z, {
     powerRequired: false
   });
 
@@ -39,7 +39,7 @@ function roverLight(x, y, z) {
   //wire2.connect(ledLight2);
   wire2.connect(ledLight3);
 
-  // Add parts to RealStone system
+  // Add parts to AyCraft system
   contraption.addPart(latch);
   contraption.addPart(latch2);
   contraption.addPart(wire1);

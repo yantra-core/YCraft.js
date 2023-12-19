@@ -1,7 +1,7 @@
-import { RealStone, Button, LEDLight, Wire, Amplifier } from '../index.js';
+import { AyCraft, Button, LEDLight, Wire, Amplifier } from '../index.js';
 
 function amplifiedLight () {
-  let contraption = new RealStone();
+  let contraption = new AyCraft();
   let button = new Button(0, -150, 0);
   let amplifier = new Amplifier(150, -150, 0, { voltage: 20, amplitude: 400 }); // Adding the Amplifier
   let wire = new Wire();
@@ -12,7 +12,7 @@ function amplifiedLight () {
   amplifier.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to RealStone system
+  // Add parts to AyCraft system
   contraption.addPart(button);
   contraption.addPart(amplifier);
   contraption.addPart(wire);

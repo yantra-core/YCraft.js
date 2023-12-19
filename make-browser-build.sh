@@ -1,20 +1,20 @@
-# Builds the browser bundle for realstone
-browserify ./browser-shim.js --standalone RS -o ./dist/realstone.js -t babelify
+# Builds the browser bundle for aycraft
+browserify ./browser-shim.js --standalone RS -o ./dist/aycraft.js -t babelify
 
-# Copy the realstone.js file to ./examples/browser
-cp ./dist/realstone.js ./browser/realstone.js
+# Copy the aycraft.js file to ./examples/browser
+cp ./dist/aycraft.js ./browser/aycraft.js
 
-# Copy the realstone.js file to ../mantra/mantra-client/public
-cp ./dist/realstone.js ../mantra/mantra-client/public/realstone.js
+# Copy the aycraft.js file to ../mantra/mantra-client/public
+cp ./dist/aycraft.js ../mantra/mantra-client/public/aycraft.js
 
-# Copy the realstone.js file to ../yantra.gg/public/js
-cp ./dist/realstone.js ../yantra.gg/public/realstone.js
-# Copy the realstone.min.js file to ../yantra.gg/public/js
-cp ./dist/realstone.min.js ../yantra.gg/public/realstone.min.js
+# Copy the aycraft.js file to ../yantra.gg/public/js
+cp ./dist/aycraft.js ../yantra.gg/public/aycraft.js
+# Copy the aycraft.min.js file to ../yantra.gg/public/js
+cp ./dist/aycraft.min.js ../yantra.gg/public/aycraft.min.js
 
-# Copy the ./examples/browser folder to ../yantra.gg/public/realstone
-# cp -r ./examples/browser/ ../yantra.gg/public/realstone
+# Copy the ./examples/browser folder to ../yantra.gg/public/aycraft
+# cp -r ./examples/browser/ ../yantra.gg/public/aycraft
 
 
 # Minifies the generated bundle and creates a source map
-uglifyjs ./dist/realstone.js --compress --mangle --source-map "url='realstone.min.js.map',root='../',includeSources" -o ./dist/realstone.min.js
+uglifyjs ./dist/aycraft.js --compress --mangle --source-map "url='aycraft.min.js.map',root='../',includeSources" -o ./dist/aycraft.min.js

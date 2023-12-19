@@ -1,8 +1,8 @@
-import { RealStone, Button, LEDLight, Actuator } from '../index.js';
+import { AyCraft, Button, LEDLight, Actuator } from '../index.js';
 
 function buttonActuatorLight () {
 
-  let contraption = new RealStone();
+  let contraption = new AyCraft();
 
   let button = new Button(0, -150, 0);
   let actuator = new Actuator(150, -150, 0, { frequency: 1000});
@@ -12,7 +12,7 @@ function buttonActuatorLight () {
   button.connect(actuator);
   actuator.connect(ledLight);
   
-  // Add parts to RealStone system
+  // Add parts to AyCraft system
   contraption.addPart(button);
   contraption.addPart(actuator);
   contraption.addPart(ledLight);

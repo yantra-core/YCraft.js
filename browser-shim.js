@@ -1,4 +1,4 @@
-import RealStone from './lib/RealStone.js';
+import AyCraft from './lib/AyCraft.js';
 
 import ElectricalSignal from './lib/signals/ElectricalSignal.js';
 import Actuator from './lib/parts/Actuator.js';
@@ -17,12 +17,12 @@ import Wire from './lib/parts/Wire.js';
 import allExamples from './examples/WIP/all-examples-composite.js';
 
 function createContraption () {
-  return new RealStone();
+  return new AyCraft();
 }
 
 export {
   createContraption,
-  RealStone,
+  AyCraft,
   ElectricalSignal,
   Actuator,
   Amplifier,

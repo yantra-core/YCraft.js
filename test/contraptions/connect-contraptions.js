@@ -1,10 +1,10 @@
 import tap from 'tape';
-import { RealStone, Button, LEDLight } from '../../index.js';
+import { AyCraft, Button, LEDLight } from '../../index.js';
 
 tap.test('Doorbell System', (t) => {
-    // Create the RealStone instances for each contraption
-    let doorbellButtonContraption = new RealStone();
-    let bellContraption = new RealStone();
+    // Create the AyCraft instances for each contraption
+    let doorbellButtonContraption = new AyCraft();
+    let bellContraption = new AyCraft();
 
     // Create the components
     let doorbellButton = new Button();

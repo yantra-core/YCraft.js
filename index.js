@@ -1,4 +1,4 @@
-import RealStone from './lib/RealStone.js';
+import AyCraft from './lib/AyCraft.js';
 
 import ElectricalSignal from './lib/signals/ElectricalSignal.js';
 import Actuator from './lib/parts/Actuator.js';
@@ -15,7 +15,7 @@ import Rover from './lib/parts/Rover.js';
 import Wire from './lib/parts/Wire.js';
 
 export {
-  RealStone,
+  AyCraft,
   ElectricalSignal,
   Actuator,
   Amplifier,

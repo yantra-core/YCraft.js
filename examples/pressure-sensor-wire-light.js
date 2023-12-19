@@ -1,8 +1,8 @@
-import { RealStone, PressureSensor, LEDLight, Wire } from '../index.js';
+import { AyCraft, PressureSensor, LEDLight, Wire } from '../index.js';
 
 function pressureSensorWireLight () {
 
-  let contraption = new RealStone();
+  let contraption = new AyCraft();
   let pressureSensor = new PressureSensor(0, -300, 0);
   let wire = new Wire();
   let ledLight = new LEDLight(300, -300, 0);
@@ -11,7 +11,7 @@ function pressureSensorWireLight () {
   pressureSensor.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to RealStone system
+  // Add parts to AyCraft system
   contraption.addPart(pressureSensor);
   contraption.addPart(wire);
   contraption.addPart(ledLight);

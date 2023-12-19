@@ -1,4 +1,4 @@
-import { RealStone, Button, Latch, LEDLight, Actuator } from '../../index.js';
+import { AyCraft, Button, Latch, LEDLight, Actuator } from '../../index.js';
 
 /*
 
@@ -15,7 +15,7 @@ import signalButtonBreakLight from './WIP/signal-button-break-light.js/index.js'
 
 */
 function multipleContraptions() {
-  let bigDevice = new RealStone(0, 0, 0, { width: 1000, height: 1000, depth: 1000 });
+  let bigDevice = new AyCraft(0, 0, 0, { width: 1000, height: 1000, depth: 1000 });
 
   /*
 

@@ -1,10 +1,10 @@
-import { RealStone, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Relay } from '../index.js';
+import { AyCraft, Amplifier, Button, LEDLight, Wire, Actuator, MotionDetector, PressureSensor, Relay } from '../index.js';
 
 
 function securitySystem() {
 
 
-  let contraption = new RealStone();
+  let contraption = new AyCraft();
 
   // Initialize and position components
   const motionDetector = new MotionDetector(-150, -250, 0);
@@ -32,7 +32,7 @@ function securitySystem() {
   actuator.connect(wireToLight);
   wireToLight.connect(securityLight);
 
-  // Add components and wires to RealStone system
+  // Add components and wires to AyCraft system
   contraption.addPart(motionDetector);
   contraption.addPart(pressureSensor);
   contraption.addPart(securityLight);

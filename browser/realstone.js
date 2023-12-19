@@ -64,10 +64,10 @@ Object.defineProperty(exports, "PressureSensor", {
     return _PressureSensor["default"];
   }
 });
-Object.defineProperty(exports, "RealStone", {
+Object.defineProperty(exports, "AyCraft", {
   enumerable: true,
   get: function get() {
-    return _RealStone["default"];
+    return _AyCraft["default"];
   }
 });
 Object.defineProperty(exports, "Relay", {
@@ -95,7 +95,7 @@ Object.defineProperty(exports, "allExamples", {
   }
 });
 exports.createContraption = createContraption;
-var _RealStone = _interopRequireDefault(require("./lib/RealStone.js"));
+var _AyCraft = _interopRequireDefault(require("./lib/AyCraft.js"));
 var _ElectricalSignal = _interopRequireDefault(require("./lib/signals/ElectricalSignal.js"));
 var _Actuator = _interopRequireDefault(require("./lib/parts/Actuator.js"));
 var _Amplifier = _interopRequireDefault(require("./lib/parts/Amplifier.js"));
@@ -112,10 +112,10 @@ var _Wire = _interopRequireDefault(require("./lib/parts/Wire.js"));
 var _allExamplesComposite = _interopRequireDefault(require("./examples/WIP/all-examples-composite.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function createContraption() {
-  return new _RealStone["default"]();
+  return new _AyCraft["default"]();
 }
 
-},{"./examples/WIP/all-examples-composite.js":2,"./lib/RealStone.js":5,"./lib/parts/Actuator.js":6,"./lib/parts/Amplifier.js":7,"./lib/parts/Button.js":8,"./lib/parts/LEDLight.js":9,"./lib/parts/LaserSensor.js":10,"./lib/parts/Latch.js":11,"./lib/parts/Mirror.js":12,"./lib/parts/MotionDetector.js":13,"./lib/parts/PressureSensor.js":14,"./lib/parts/Relay.js":15,"./lib/parts/Rover.js":16,"./lib/parts/Wire.js":17,"./lib/signals/ElectricalSignal.js":18}],2:[function(require,module,exports){
+},{"./examples/WIP/all-examples-composite.js":2,"./lib/AyCraft.js":5,"./lib/parts/Actuator.js":6,"./lib/parts/Amplifier.js":7,"./lib/parts/Button.js":8,"./lib/parts/LEDLight.js":9,"./lib/parts/LaserSensor.js":10,"./lib/parts/Latch.js":11,"./lib/parts/Mirror.js":12,"./lib/parts/MotionDetector.js":13,"./lib/parts/PressureSensor.js":14,"./lib/parts/Relay.js":15,"./lib/parts/Rover.js":16,"./lib/parts/Wire.js":17,"./lib/signals/ElectricalSignal.js":18}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -138,7 +138,7 @@ import signalButtonBreakLight from './WIP/signal-button-break-light.js/index.js'
 
 */
 function multipleContraptions() {
-  var bigDevice = new _index.RealStone(0, 0, 0, {
+  var bigDevice = new _index.AyCraft(0, 0, 0, {
     width: 1000,
     height: 1000,
     depth: 1000
@@ -230,10 +230,10 @@ Object.defineProperty(exports, "PressureSensor", {
     return _PressureSensor["default"];
   }
 });
-Object.defineProperty(exports, "RealStone", {
+Object.defineProperty(exports, "AyCraft", {
   enumerable: true,
   get: function get() {
-    return _RealStone["default"];
+    return _AyCraft["default"];
   }
 });
 Object.defineProperty(exports, "Relay", {
@@ -254,7 +254,7 @@ Object.defineProperty(exports, "Wire", {
     return _Wire["default"];
   }
 });
-var _RealStone = _interopRequireDefault(require("./lib/RealStone.js"));
+var _AyCraft = _interopRequireDefault(require("./lib/AyCraft.js"));
 var _ElectricalSignal = _interopRequireDefault(require("./lib/signals/ElectricalSignal.js"));
 var _Actuator = _interopRequireDefault(require("./lib/parts/Actuator.js"));
 var _Amplifier = _interopRequireDefault(require("./lib/parts/Amplifier.js"));
@@ -270,7 +270,7 @@ var _Rover = _interopRequireDefault(require("./lib/parts/Rover.js"));
 var _Wire = _interopRequireDefault(require("./lib/parts/Wire.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-},{"./lib/RealStone.js":5,"./lib/parts/Actuator.js":6,"./lib/parts/Amplifier.js":7,"./lib/parts/Button.js":8,"./lib/parts/LEDLight.js":9,"./lib/parts/LaserSensor.js":10,"./lib/parts/Latch.js":11,"./lib/parts/Mirror.js":12,"./lib/parts/MotionDetector.js":13,"./lib/parts/PressureSensor.js":14,"./lib/parts/Relay.js":15,"./lib/parts/Rover.js":16,"./lib/parts/Wire.js":17,"./lib/signals/ElectricalSignal.js":18}],4:[function(require,module,exports){
+},{"./lib/AyCraft.js":5,"./lib/parts/Actuator.js":6,"./lib/parts/Amplifier.js":7,"./lib/parts/Button.js":8,"./lib/parts/LEDLight.js":9,"./lib/parts/LaserSensor.js":10,"./lib/parts/Latch.js":11,"./lib/parts/Mirror.js":12,"./lib/parts/MotionDetector.js":13,"./lib/parts/PressureSensor.js":14,"./lib/parts/Relay.js":15,"./lib/parts/Rover.js":16,"./lib/parts/Wire.js":17,"./lib/signals/ElectricalSignal.js":18}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -318,8 +318,8 @@ var Part = exports.Part = /*#__PURE__*/function (_EventEmitter) {
     return _this;
   }
   _createClass(Part, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
 
@@ -352,10 +352,10 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-var RealStone = /*#__PURE__*/function (_EventEmitter) {
-  _inherits(RealStone, _EventEmitter);
-  var _super = _createSuper(RealStone);
-  function RealStone() {
+var AyCraft = /*#__PURE__*/function (_EventEmitter) {
+  _inherits(AyCraft, _EventEmitter);
+  var _super = _createSuper(AyCraft);
+  function AyCraft() {
     var _this;
     var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
@@ -363,7 +363,7 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
     var _ref = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
       _ref$powerRequired = _ref.powerRequired,
       powerRequired = _ref$powerRequired === void 0 ? false : _ref$powerRequired;
-    _classCallCheck(this, RealStone);
+    _classCallCheck(this, AyCraft);
     _this = _super.call(this);
 
     // Local x-coordinate in global space
@@ -383,7 +383,7 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
   }
 
   // top-level on method for the contraption
-  _createClass(RealStone, [{
+  _createClass(AyCraft, [{
     key: "start",
     value: function start() {
       // check to see if any parts have been added,
@@ -428,10 +428,10 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
       var offsetZ = this.position.z;
       contraption.setPosition(contraption.position.x + offsetX, contraption.position.y + offsetY, contraption.position.z + offsetZ);
 
-      // Add the contraption to the RealStone's contraptions array
+      // Add the contraption to the AyCraft's contraptions array
       this.contraptions.push(contraption);
 
-      // Forward events from the contraption to the RealStone instance
+      // Forward events from the contraption to the AyCraft instance
       contraption.onAny(function (eventName) {
         for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
           args[_key - 1] = arguments[_key];
@@ -439,16 +439,16 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
         _this2.emit.apply(_this2, [eventName].concat(args));
       });
 
-      // Set the RealStone context for the contraption
-      if (typeof contraption.setRealStone === 'function') {
-        contraption.setRealStone(this);
+      // Set the AyCraft context for the contraption
+      if (typeof contraption.setAyCraft === 'function') {
+        contraption.setAyCraft(this);
       }
     }
   }, {
     key: "addPart",
     value: function addPart(part) {
       var _this3 = this;
-      // Adjust part's position relative to the RealStone's local coordinates
+      // Adjust part's position relative to the AyCraft's local coordinates
       part.position.x += this.position.x;
       part.position.y += this.position.y;
       part.position.z += this.position.z;
@@ -458,11 +458,11 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
           for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
             args[_key2 - 1] = arguments[_key2];
           }
-          // Forward the part's events to the RealStone instance
+          // Forward the part's events to the AyCraft instance
           _this3.emit.apply(_this3, [eventName].concat(args));
         });
-        if (typeof part.setRealStone === 'function') {
-          part.setRealStone(this);
+        if (typeof part.setAyCraft === 'function') {
+          part.setAyCraft(this);
         }
       }
     }
@@ -485,12 +485,12 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "connect",
     value: function connect(targetComponent) {
-      // Check if the target component belongs to another RealStone instance
-      if (targetComponent instanceof RealStoneComponent && this.realStone !== targetComponent.realStone) {
+      // Check if the target component belongs to another AyCraft instance
+      if (targetComponent instanceof AyCraftComponent && this.realStone !== targetComponent.realStone) {
         // Implement logic to handle inter-contraption connections
         // This could involve using a global event emitter or a direct reference
       } else {
-        // Regular connection logic for components within the same RealStone instance
+        // Regular connection logic for components within the same AyCraft instance
       }
     }
   }, {
@@ -520,7 +520,7 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
       var dx = x - this.position.x;
       var dy = y - this.position.y;
       var dz = z - this.position.z;
-      // Update RealStone's local coordinates
+      // Update AyCraft's local coordinates
       this.position.x = x;
       this.position.y = y;
       this.position.z = z;
@@ -588,9 +588,9 @@ var RealStone = /*#__PURE__*/function (_EventEmitter) {
       return connections;
     }
   }]);
-  return RealStone;
+  return AyCraft;
 }(_EventEmitter2["default"]);
-var _default = exports["default"] = RealStone;
+var _default = exports["default"] = AyCraft;
 
 },{"./utils/EventEmitter.js":19}],6:[function(require,module,exports){
 "use strict";
@@ -768,8 +768,8 @@ var Amplifier = exports["default"] = /*#__PURE__*/function (_Part) {
     return _this;
   }
   _createClass(Amplifier, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
   }, {
@@ -895,8 +895,8 @@ var Button = exports["default"] = /*#__PURE__*/function (_Part) {
     return _this;
   }
   _createClass(Button, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
   }, {
@@ -1016,8 +1016,8 @@ var LEDLight = exports["default"] = /*#__PURE__*/function (_Part) {
     return _this;
   }
   _createClass(LEDLight, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
   }, {
@@ -1221,8 +1221,8 @@ var Latch = exports["default"] = /*#__PURE__*/function (_Part) {
     return _this;
   }
   _createClass(Latch, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
   }, {
@@ -1616,8 +1616,8 @@ var Relay = exports["default"] = /*#__PURE__*/function (_Part) {
     return _this;
   }
   _createClass(Relay, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
   }, {
@@ -1753,10 +1753,10 @@ var Rover = /*#__PURE__*/function (_Part) {
     return _this;
   }
 
-  // Method to set RealStone reference
+  // Method to set AyCraft reference
   _createClass(Rover, [{
-    key: "setRealStone",
-    value: function setRealStone(realStone) {
+    key: "setAyCraft",
+    value: function setAyCraft(realStone) {
       this.realStone = realStone;
     }
 

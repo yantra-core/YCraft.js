@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
       follow: true
     }
   });
-  game.use('RealStone');
+  game.use('AyCraft');
 
   game.start(function(){
     game.use('Editor');

@@ -1,8 +1,8 @@
-import { RealStone, Button, LEDLight, Wire, ElectricalSignal } from '../../index.js';
+import { AyCraft, Button, LEDLight, Wire, ElectricalSignal } from '../../index.js';
 
 function signalButtonBreakLight () {
 
-  let contraption = new RealStone({
+  let contraption = new AyCraft({
     powerRequired: false // default is false, set to true to enforce power requirements
   });
   
@@ -14,7 +14,7 @@ function signalButtonBreakLight () {
   button.connect(wire);
   wire.connect(ledLight);
   
-  // Add parts to RealStone system
+  // Add parts to AyCraft system
   contraption.addPart(button);
   contraption.addPart(wire);
   contraption.addPart(ledLight);

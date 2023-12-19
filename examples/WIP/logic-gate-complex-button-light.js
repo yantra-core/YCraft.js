@@ -1,6 +1,6 @@
-import { RealStone, Button, LEDLight, Wire, AndGate, OrGate, NotGate } from '../../index.js';
+import { AyCraft, Button, LEDLight, Wire, AndGate, OrGate, NotGate } from '../../index.js';
 
-let demoSystem = new RealStone({
+let demoSystem = new AyCraft({
   powerRequired: false
 });
 
@@ -36,7 +36,7 @@ wire4.connect(orGate);
 // Connect OR gate to LED light
 orGate.connect(ledLight);
 
-// Add parts to RealStone system
+// Add parts to AyCraft system
 demoSystem.addPart(button);
 demoSystem.addPart(ledLight);
 demoSystem.addPart(andGate);

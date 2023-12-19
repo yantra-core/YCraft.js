@@ -15,19 +15,19 @@ async function uploadContraptions2() {
       let content = await fs.readFile(`./examples/${file}`, 'utf8');
       const name = path.basename(file, '.js'); // Use the file name without the extension as the contraption name
 
-      // inside content, replace the string '../index.js' with `realstone`
+      // inside content, replace the string '../index.js' with `aycraft`
       // this is because the contraption code will be run in the browser, and
       // the browser will not have access to the local folder
-      content = content.replace(/'\.\.\/index\.js'/g, "'realstone'");
+      content = content.replace(/'\.\.\/index\.js'/g, "'aycraft'");
 
-      // find any lines that look like: let anyStRinGcase = new RealStone();
+      // find any lines that look like: let anyStRinGcase = new AyCraft();
       // and add a line immediately after that looks like: window.anyStRinGcase = anyStRinGcase;
       // this is to make the system available in the browser console
       const lines = content.split('\n');
       let windowLine = '';
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
-        if (line.includes('new RealStone')) {
+        if (line.includes('new AyCraft')) {
           const variableName = line.split(' ')[1].trim();
           console.log('using variableName', variableName)
           windowLine = `\n\nwindow.realStoneSystem = ${variableName};`;
@@ -110,7 +110,7 @@ async function uploadContraptions() {
 }
 
 function processContent(content) {
-  content = content.replace(/'\.\.\/index\.js'/g, "'realstone'");
+  content = content.replace(/'\.\.\/index\.js'/g, "'aycraft'");
   content = content.replace(/import.*/g, '');
   // replace all 'new ' strings with 'new RS.'
 

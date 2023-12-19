@@ -1,5 +1,5 @@
 import tap from 'tape';
-import RealStone from '../../lib/RealStone.js';
+import AyCraft from '../../lib/AyCraft.js';
 import MotionDetector from '../../lib/parts/MotionDetector.js';
 import Amplifier from '../../lib/parts/Amplifier.js';
 import Wire from '../../lib/parts/Wire.js';
@@ -9,7 +9,7 @@ import Button from '../../lib/parts/Button.js';
 import Relay from '../../lib/parts/Relay.js';
 
 tap.test('Smart Security System Integration Test', (t) => {
-    const realStoneSystem = new RealStone();
+    const realStoneSystem = new AyCraft();
 
     // Set up components
     const motionDetector = new MotionDetector();
@@ -28,7 +28,7 @@ tap.test('Smart Security System Integration Test', (t) => {
     pressureSensor.connect(securityLight);
     manualOverrideButton.connect(securityLight);
 
-    // Add parts to RealStone system
+    // Add parts to AyCraft system
     realStoneSystem.addPart(motionDetector);
     realStoneSystem.addPart(signalAmplifier);
     realStoneSystem.addPart(wire);

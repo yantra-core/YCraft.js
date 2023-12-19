@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RealStone.js - Contraption Viewer</title>
+  <title>AyCraft.js - Contraption Viewer</title>
   <link rel="stylesheet" href="https://yantra.gg/mantra.css">
   <script type="module" src="https://yantra.gg/mantra.js"></script>
-  <script type="module" src="/realstone.js"></script>
+  <script type="module" src="/aycraft.js"></script>
   <script type="module" src="/demo.js"></script>
   <style>
     body,
@@ -165,7 +165,7 @@
       }
 
       // clear all PARTS from Mantra
-      game.systems.realstone.clearAllParts();
+      game.systems.aycraft.clearAllParts();
 
       // for now autorun
       let autoRunCode = true;
@@ -301,7 +301,7 @@
         // try to figure out example name ( for now )
         let systemName = 'realStoneSystem';
 
-        game.systems.realstone.setContraption(eval(systemName));
+        game.systems.aycraft.setContraption(eval(systemName));
       }
     }
 
@@ -312,7 +312,7 @@
 
   <div id="main-container">
     <header>
-      <h1>RealStone Contraption Viewer</h1>
+      <h1>AyCraft Contraption Viewer</h1>
     </header>
 
     <section id="contraption-interface">
