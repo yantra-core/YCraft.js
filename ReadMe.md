@@ -21,31 +21,30 @@
   <a href="#contributing">Contributing</a>
 </h4>
 
-## Build `Contrapations` with `Parts`
-
-YCraft.js is a versatile JavaScript library for building, simulating, and managing `Contraptions`. YCraft handles all aspects of your simulation while emitting events other outside systems can interact with.
-
-A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
 
 # Design Principals
 
-- Rapid Prototyping of simulated contraptions
+- Rapid Prototyping of simulated `Contraptions` with `Parts`
 - Opt-in Realism - Tailor the level of realism to fit your project's needs
 - Granualar configurations with reasonable default conventions
 - Event-driven architecture allowing for seamless integration with external systems
 - Headless Simulations
 
-## Viewing Contraptions
+A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
+
+## Contraption Interaction
 
 TODO `SCREENSHOTS` 
 
-Here you can find a live demo of rendering contraptions with Mantra.js.
- 
- - [yantra link](https://yantra.gg/ycraft)
- - CodePen Link: [CodePen](https://codepen.io/)
-
-
 YCraft.js itself has no knowledge of graphics. Contraptions can be rendered however you wish.
+
+Here are live demos of rendering contraptions using Mantra.js. You can click on `Parts` to toggle them.
+ 
+ - [Yantra Hosted](https://yantra.gg/ycraft)
+ - [CodePen Hosted](https://codepen.io/)
+
+
+
 
 Including [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
 
