@@ -1,10 +1,16 @@
-# YCraft.js
+<h1 align="center">YCraft.js
+</h1>
 
-## A library for building and simulating interactive contraptions
 
-<p align="center">
-  <img src="path-to-your-logo-or-image.png" alt="YCraft.js Logo" width="200"/>
-</p>
+<h3 align="center">
+  
+  ![ycraft-logo-smol](https://github.com/yantra-core/YCraft.js/assets/70011/c47f99ef-b4ea-477f-8967-155cc95d91c1)
+
+  
+</h3>
+
+<h2 align="center">A library for building and simulating interactive contraptions</h2>
+
 
 <h4 align="center">
   <a href="https://yantra.gg/ycraft">Live Demos</a> •
@@ -21,7 +27,7 @@ YCraft.js is a versatile JavaScript library for building, simulating, and managi
 
 A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
 
-# YCraft.js Key Design Prinicpals
+# Design Principals
 
 - Rapid Prototyping of simulated contraptions
 - Opt-in Realism - Tailor the level of realism to fit your project's needs
