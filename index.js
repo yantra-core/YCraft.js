@@ -12,6 +12,7 @@ import MotionDetector from './lib/parts/MotionDetector.js';
 import PressureSensor from './lib/parts/PressureSensor.js';
 import Relay from './lib/parts/Relay.js';
 import Rover from './lib/parts/Rover.js';
+import VirtualMachine from './lib/parts/VirtualMachine.js';
 import Wire from './lib/parts/Wire.js';
 
 export {
@@ -28,6 +29,7 @@ export {
   PressureSensor,
   Relay,
   Rover,
+  VirtualMachine,
   Wire,
 
   /*
