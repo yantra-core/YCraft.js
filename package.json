@@ -1,17 +1,17 @@
 {
   "name": "ycraft",
-  "version": "1.1.0",
-  "description": "A JavaScript library for building and simulating interactive contraptions within a physics-based environment.",
+  "version": "1.1.1",
+  "description": "A library for building and simulating interactive contraptions",
   "main": "index.js",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yantra-core/ycraft.git"
+    "url": "git+https://github.com/yantra-core/ycraft.js.git"
   },
   "bugs": {
-    "url": "https://github.com/yantra-core/ycraft/issues"
+    "url": "https://github.com/yantra-core/ycraft.js/issues"
   },
-  "homepage": "https://github.com//yantra-core/ycraft#readme",
+  "homepage": "https://github.com//yantra-core/ycraft.js#readme",
   "directories": {
     "lib": "lib",
     "test": "test"

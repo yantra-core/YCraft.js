@@ -4,6 +4,7 @@ import ElectricalSignal from './lib/signals/ElectricalSignal.js';
 import Actuator from './lib/parts/Actuator.js';
 import Amplifier from './lib/parts/Amplifier.js';
 import Button from './lib/parts/Button.js';
+import Display from './lib/parts/Display.js';
 import LaserSensor from './lib/parts/LaserSensor.js';
 import Latch from './lib/parts/Latch.js';
 import LEDLight from './lib/parts/LEDLight.js';
@@ -21,6 +22,7 @@ export {
   Actuator,
   Amplifier,
   Button,
+  Display,
   LaserSensor,
   Latch,
   LEDLight,

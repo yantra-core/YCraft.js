@@ -30,13 +30,13 @@
 - Event-driven architecture allowing for seamless integration with external systems
 - Headless Simulations
 
-A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems for game development or educational purposes.
+A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems in game development and educational projects.
 
 ## Contraption Interaction
 
 TODO `SCREENSHOTS` 
 
-YCraft.js itself has no knowledge of graphics. Contraptions can be rendered however you wish.
+YCraft.js itself has no knowledge of graphics or user-interaction. Contraptions are rendered however you wish using outside system that can communicate with JavaScript functions.
 
 Here are live demos of rendering contraptions using Mantra.js. You can click on `Parts` to toggle them.
  
@@ -46,7 +46,7 @@ Here are live demos of rendering contraptions using Mantra.js. You can click on 
 
 
 
-Including [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSS`, `Babylon.js`, or `Phaser 3`
+Rendering contraptions with [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSSGraphics`, `Babylon.js`, or `Phaser 3`
 
 To run these same demos locally without having to install or depend on anything, open the html file found in this 
 repository: see: `./examples/browser/index.html`
