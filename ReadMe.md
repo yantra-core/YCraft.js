@@ -2,11 +2,8 @@
 
 <h3 align="center">
   
-
 ![ycraft-logo-sm](https://github.com/yantra-core/YCraft.js/assets/70011/956a0a05-8fa3-4395-876a-fd6c5a646a13)
 
-
-  
 </h3>
 
 <h1 align="center">YCraft.js
@@ -35,25 +32,6 @@
 - Headless Simulations
 
 A growing list of [Parts](#parts) are available, and we aim to support all commonly known items. YCraft.js is an ideal tool for implementing JavaScript crafting systems in game development and educational projects.
-
-## Contraption Interaction
-
-TODO `SCREENSHOTS` 
-
-YCraft.js itself has no knowledge of graphics or user-interaction. Contraptions are rendered however you wish using outside system that can communicate with JavaScript functions.
-
-Here are live demos of rendering contraptions using Mantra.js. You can click on `Parts` to toggle them.
- 
- - [Yantra Hosted](https://yantra.gg/ycraft)
- - [CodePen Hosted](https://codepen.io/)
-
-
-
-
-Rendering contraptions with [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSSGraphics`, `Babylon.js`, or `Phaser 3`
-
-To run these same demos locally without having to install or depend on anything, open the html file found in this 
-repository: see: `./examples/browser/index.html`
 
 <a name="install"></a>
 ## Installation
@@ -97,6 +75,26 @@ npm install ycraft
 ```
 
 See: `./examples/` folder for node.js example code.
+
+## Contraption Interaction
+
+TODO `SCREENSHOTS` 
+
+YCraft.js itself has no knowledge of graphics or user-interaction. Contraptions are rendered however you wish using outside system that can communicate with JavaScript functions.
+
+Here are live demos of rendering contraptions using Mantra.js. You can click on `Parts` to toggle them.
+ 
+ - [Yantra Hosted](https://yantra.gg/ycraft)
+ - [CodePen Hosted](https://codepen.io/)
+
+
+
+
+Rendering contraptions with [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSSGraphics`, `Babylon.js`, or `Phaser 3`
+
+To run these same demos locally without having to install or depend on anything, open the html file found in this 
+repository: see: `./examples/browser/index.html`
+
 
 <a name="parts"></a>
 ## `Part` List
