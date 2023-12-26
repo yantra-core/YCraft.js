@@ -1,13 +1,17 @@
-<h1 align="center">YCraft.js
-</h1>
 
 
 <h3 align="center">
   
-  ![ycraft-logo-smol](https://github.com/yantra-core/YCraft.js/assets/70011/c47f99ef-b4ea-477f-8967-155cc95d91c1)
+
+![ycraft-logo-sm](https://github.com/yantra-core/YCraft.js/assets/70011/956a0a05-8fa3-4395-876a-fd6c5a646a13)
+
 
   
 </h3>
+
+<h1 align="center">YCraft.js
+</h1>
+
 
 <h2 align="center">A library for building and simulating interactive contraptions</h2>
 
