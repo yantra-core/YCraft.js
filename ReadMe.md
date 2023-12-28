@@ -2,7 +2,7 @@
 
 <h3 align="center">
   
-![ycraft-logo-sm](https://github.com/yantra-core/YCraft.js/assets/70011/956a0a05-8fa3-4395-876a-fd6c5a646a13)
+![ycraft-logo-sm](https://github.com/yantra-core/YCraft.js/blob/master/assets/ycraft-logo-small.png)
 
 </h3>
 
@@ -78,7 +78,7 @@ See: `./examples/` folder for node.js example code.
 
 ## Contraption Interaction
 
-![ycraft-simple](https://github.com/yantra-core/YCraft.js/assets/70011/57eaa43c-ea74-4a30-be09-ff3e304d08ce)
+![ycraft-simple](https://github.com/yantra-core/YCraft.js/blob/master/assets/ycraft-demo-light.gif)
 
 YCraft.js itself has no knowledge of graphics or user-interaction. Contraptions are rendered however you wish using outside system that can communicate with JavaScript functions.
 
