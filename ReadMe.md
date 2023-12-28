@@ -78,17 +78,13 @@ See: `./examples/` folder for node.js example code.
 
 ## Contraption Interaction
 
-TODO `SCREENSHOTS` 
+![ycraft-simple](https://github.com/yantra-core/YCraft.js/assets/70011/57eaa43c-ea74-4a30-be09-ff3e304d08ce)
 
 YCraft.js itself has no knowledge of graphics or user-interaction. Contraptions are rendered however you wish using outside system that can communicate with JavaScript functions.
 
 Here are live demos of rendering contraptions using Mantra.js. You can click on `Parts` to toggle them.
  
- - [Yantra Hosted](https://yantra.gg/ycraft)
- - [CodePen Hosted](https://codepen.io/)
-
-
-
+ - [Yantra Hosted](https://yantra.gg/mantra/ycraft)
 
 Rendering contraptions with [Mantra.js](https://github.com/yantra-core/mantra.js) is one-liner from the CDN and will render Contraptions in the browser using either: `CSSGraphics`, `Babylon.js`, or `Phaser 3`
 
