@@ -42,7 +42,7 @@ A growing list of [Parts](#parts) are available, and we aim to support all commo
 <script src="https://yantra.gg/ycraft.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    let contraption = new YC.Craft();
+    let contraption = new YC.YCraft();
     let button = new YC.Button();
     let wire = new YC.Wire();
     let ledLight = new YC.LEDLight();
