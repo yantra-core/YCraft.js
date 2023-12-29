@@ -1,5 +1,5 @@
 # Builds the browser bundle for ycraft
-browserify ./browser-shim.js --standalone RS -o ./dist/ycraft.js -t babelify
+browserify ./browser-shim.js --standalone YC -o ./dist/ycraft.js -t babelify
 
 # Copy the ycraft.js file to ./examples/browser
 cp ./dist/ycraft.js ./browser/ycraft.js

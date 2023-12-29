@@ -42,10 +42,10 @@ A growing list of [Parts](#parts) are available, and we aim to support all commo
 <script src="https://yantra.gg/ycraft.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', (event) => {
-    let contraption = new AY.craft();
-    let button = new AY.Button();
-    let wire = new AY.Wire();
-    let ledLight = new AY.LEDLight();
+    let contraption = new YC.craft();
+    let button = new YC.Button();
+    let wire = new YC.Wire();
+    let ledLight = new YC.LEDLight();
 
     // Connect button to wire, and wire to LED light
     button.connect(wire);
