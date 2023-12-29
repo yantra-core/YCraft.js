@@ -18,6 +18,7 @@ import Wire from './lib/parts/Wire.js';
 
 export {
   YCraft,
+  YCraft as Craft,
   ElectricalSignal,
   Actuator,
   Amplifier,
