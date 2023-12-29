@@ -14,7 +14,7 @@
 
 
 <h4 align="center">
-  <a href="https://yantra.gg/ycraft">Live Demos</a> •
+  <a href="https://yantra.gg/mantra/ycraft">Live Demos</a> •
   <a href="#install">Installation</a> •
   <a href="#light">Usage</a> •
   <a href="#terms">Termonologies</a> •
