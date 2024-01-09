@@ -6,6 +6,8 @@ export default class MockComponent {
     this.connectedParts = [];
     this.signal = new ElectricalSignal();
     this.position = { x: x, y: y, z: z };
+    this.onFn = this.receive.bind(this);
+    // this.offFn = this.release.bind(this);
   }
 
   transmit(signal = this.signal) {
